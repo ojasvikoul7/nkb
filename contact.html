@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us - NKB Packaging Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --ink:#0a0806;
+      --blue:#002897;
+      --blue-mid:#0033cc;
+      --blue-light:#e8efff;
+      --accent:#00c6ff;
+      --white:#ffffff;
+      --off:#f6f8fc;
+      --gray:#64748b;
+      --border:#e2e8f0;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',sans-serif;background:var(--white);color:var(--ink);line-height:1.6;cursor:none}
+    
+    .cursor-dot{position:fixed;width:8px;height:8px;background:var(--blue);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference}
+    .cursor-ring{position:fixed;width:40px;height:40px;border:1.5px solid var(--blue);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s,border-color .2s}
+    .cursor-ring.hover{width:60px;height:60px;border-color:var(--accent)}
+    
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:22px 60px;background:rgba(255,255,255,.85);backdrop-filter:blur(18px);border-bottom:1px solid rgba(229,231,235,.5);transition:padding .4s}
+    nav.scrolled{padding:14px 60px}
+    .nav-logo{font-family:'Inter',sans-serif;font-size:20px;font-weight:800;letter-spacing:-0.5px;color:var(--ink);text-decoration:none}
+    .nav-logo span{color:var(--blue)}
+    .nav-links{display:flex;gap:40px;list-style:none;align-items:center}
+    .nav-links a{font-size:14px;font-weight:500;color:var(--gray);text-decoration:none;letter-spacing:.3px;transition:color .2s}
+    .nav-links a:hover{color:var(--blue)}
+    .nav-dropdown{position:relative}
+    .nav-dropdown-toggle{display:flex;align-items:center;gap:6px;cursor:pointer;font-size:14px;font-weight:500;color:var(--gray);letter-spacing:.3px;transition:color .2s}
+    .nav-dropdown-toggle:hover{color:var(--blue)}
+    .nav-dropdown-toggle svg{transition:transform .2s}
+    .nav-dropdown:hover .nav-dropdown-toggle svg{transform:rotate(180deg)}
+    .nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(10px);background:var(--white);border:1px solid var(--border);border-radius:16px;padding:12px;min-width:240px;opacity:0;visibility:hidden;transition:all .3s;box-shadow:0 20px 60px rgba(0,0,0,.1);z-index:100}
+    .nav-dropdown:hover .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+    .nav-dropdown-menu a{display:block;padding:12px 16px;border-radius:8px;font-size:13px;color:var(--ink);transition:all .2s}
+    .nav-dropdown-menu a:hover{background:var(--off);color:var(--blue)}
+    .nav-cta{padding:10px 20px;background:var(--blue);color:#fff;font-size:13px;font-weight:600;border:none;border-radius:100px;cursor:none;letter-spacing:.3px;transition:background .2s,transform .2s}
+    .nav-cta:hover{background:var(--blue-mid);transform:scale(1.04)}
+    
+    .page-hero{min-height:50vh;display:flex;align-items:center;justify-content:center;padding:140px 60px 60px;background:linear-gradient(180deg,var(--white) 0%,var(--off) 100%);position:relative;overflow:hidden}
+    .page-hero::before{content:'';position:absolute;top:0;left:0;right:0;height:60%;background:radial-gradient(ellipse at 50% 0%,rgba(0,40,151,.04) 0%,transparent 60%);pointer-events:none}
+    .page-hero-content{max-width:800px;text-align:center;position:relative;z-index:2}
+    .page-label{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin-bottom:20px}
+    .page-title{font-family:'Inter',sans-serif;font-size:clamp(42px,5vw,64px);font-weight:800;letter-spacing:-2px;color:var(--ink);line-height:1.1;margin-bottom:20px}
+    .page-title em{font-style:italic;color:var(--blue);font-family:'Playfair Display',serif;font-weight:500}
+    .page-subtitle{font-size:18px;color:var(--gray);max-width:500px;margin:0 auto;line-height:1.7}
+    
+    .contact-section{padding:80px 60px;background:var(--white)}
+    .contact-container{max-width:1200px;margin:0 auto}
+    .contact-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:60px;align-items:start}
+    
+    .contact-info{display:flex;flex-direction:column;gap:32px}
+    .contact-info h3{font-family:'Inter',sans-serif;font-size:24px;font-weight:700;margin-bottom:8px;letter-spacing:-0.5px}
+    .contact-info>p{color:var(--gray);margin-bottom:24px}
+    
+    .contact-card{display:flex;gap:20px;align-items:flex-start;padding:28px;border-radius:20px;border:1px solid var(--border);background:var(--white);transition:all .4s cubic-bezier(0.4,0,0.2,1);text-decoration:none;color:inherit}
+    .contact-card:hover{transform:translateX(8px);border-color:var(--blue);box-shadow:0 20px 50px rgba(0,40,151,.1)}
+    .contact-icon{width:56px;height:56px;background:var(--blue-light);border-radius:16px;display:flex;align-items:center;justify-content:center;color:var(--blue);flex-shrink:0;transition:all .3s}
+    .contact-card:hover .contact-icon{background:var(--blue);color:#fff;transform:scale(1.1)}
+    .contact-details h4{font-family:'Inter',sans-serif;font-size:17px;font-weight:700;margin-bottom:6px;letter-spacing:-0.3px}
+    .contact-details p{font-size:15px;color:var(--gray);line-height:1.6}
+    .contact-details .action{font-size:13px;color:var(--blue);font-weight:600;margin-top:8px}
+    
+    .quick-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+    .quick-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;background:var(--blue);color:#fff;font-size:14px;font-weight:600;border-radius:12px;text-decoration:none;transition:all .3s}
+    .quick-btn:hover{background:var(--blue-mid);transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,40,151,.25)}
+    .quick-btn.whatsapp{background:#25d366}
+    .quick-btn.whatsapp:hover{background:#128c7e}
+    
+    .contact-form{background:linear-gradient(135deg,var(--off) 0%,var(--white) 100%);padding:48px;border-radius:32px;border:1px solid var(--border);box-shadow:0 40px 80px rgba(0,40,151,.06);position:relative;overflow:hidden}
+    .contact-form::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--blue),var(--accent));transform:scaleX(0);transform-origin:left;transition:transform 1s cubic-bezier(0.4,0,0.2,1)}
+    .contact-form.visible::before{transform:scaleX(1)}
+    .contact-form h3{font-family:'Inter',sans-serif;font-size:28px;font-weight:700;margin-bottom:8px;letter-spacing:-0.5px}
+    .contact-form>p{color:var(--gray);margin-bottom:32px;font-size:15px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+    .form-group{display:flex;flex-direction:column;gap:8px}
+    .form-group label{font-size:12px;font-weight:600;color:var(--ink);text-transform:uppercase;letter-spacing:1px}
+    .form-group input,.form-group select,.form-group textarea{padding:16px 20px;border:2px solid var(--border);border-radius:14px;font-size:15px;background:var(--white);color:var(--ink);outline:none;transition:all .3s}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(0,40,151,.08)}
+    .form-group textarea{min-height:120px;resize:vertical}
+    .form-submit{width:100%;padding:18px;background:var(--blue);color:#fff;font-size:16px;font-weight:600;border:none;border-radius:14px;cursor:none;margin-top:16px;transition:all .4s cubic-bezier(0.4,0,0.2,1);display:flex;align-items:center;justify-content:center;gap:12px;position:relative;overflow:hidden}
+    .form-submit::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transition:left .5s}
+    .form-submit:hover::before{left:100%}
+    .form-submit:hover{background:var(--blue-mid);transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,40,151,.35)}
+    
+    .map-section{padding:0 60px 80px;background:var(--white)}
+    .map-container{max-width:1200px;margin:0 auto}
+    .map-header{text-align:center;margin-bottom:40px}
+    .map-header h2{font-family:'Inter',sans-serif;font-size:36px;font-weight:800;letter-spacing:-1px;margin-bottom:12px}
+    .map-header p{color:var(--gray);font-size:16px}
+    .map-wrapper{border-radius:24px;overflow:hidden;border:1px solid var(--border);height:400px;background:var(--off);display:flex;align-items:center;justify-content:center}
+    .map-placeholder{text-align:center;color:var(--gray)}
+    .map-placeholder svg{width:64px;height:64px;margin-bottom:16px;color:var(--blue);opacity:.3}
+    .map-placeholder p{font-size:15px;margin-bottom:8px}
+    .map-placeholder span{font-size:13px;opacity:.7}
+    
+    footer{background:var(--ink);padding:60px;display:flex;align-items:center;justify-content:space-between}
+    .footer-brand{font-family:'Inter',sans-serif;font-size:20px;font-weight:800;color:#fff;letter-spacing:-0.5px}
+    .footer-brand span{color:var(--accent)}
+    .footer-copy{font-size:13px;color:rgba(255,255,255,.4)}
+    .footer-links{display:flex;gap:28px}
+    .footer-links a{font-size:13px;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+    .footer-links a:hover{color:var(--accent)}
+    
+    .reveal{opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(0.4,0,0.2,1),transform .8s cubic-bezier(0.4,0,0.2,1)}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    
+    @media (max-width:1024px){
+      .contact-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:768px){
+      /* Mobile cursor hidden */
+      .cursor-dot, .cursor-ring { display: none; }
+      body { cursor: auto; }
+      
+      /* Mobile navbar */
+      nav {
+        top: 12px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        width: calc(100% - 32px);
+        padding: 10px 16px;
+        border-radius: 50px;
+        border-bottom: none;
+      }
+      nav.scrolled {
+        top: 8px;
+        padding: 8px 14px;
+      }
+      .nav-logo { font-size: 16px; }
+      .nav-links { display: none; }
+      .nav-cta { padding: 8px 16px; font-size: 12px; }
+      
+      /* Page hero mobile */
+      .page-hero {
+        min-height: 40vh;
+        padding: 100px 20px 40px;
+      }
+      .page-title {
+        font-size: clamp(32px, 10vw, 48px);
+        letter-spacing: -2px;
+        line-height: 1.1;
+      }
+      .page-subtitle {
+        font-size: 16px;
+        padding: 0 10px;
+      }
+      .page-label {
+        font-size: 10px;
+        letter-spacing: 2px;
+      }
+      
+      /* Sections mobile */
+      .contact-section, .map-section {
+        padding: 40px 20px;
+      }
+      
+      /* Mobile reveal animations */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        transition: all 0.6s cubic-bezier(0.4,0,0.2,1);
+      }
+      
+      /* Contact cards mobile */
+      .contact-card {
+        padding: 20px;
+        border-radius: 16px;
+        gap: 16px;
+      }
+      .contact-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+      }
+      .contact-details h4 {
+        font-size: 16px;
+      }
+      .contact-details p {
+        font-size: 14px;
+      }
+      .contact-details .action {
+        font-size: 12px;
+      }
+      
+      /* Quick actions mobile */
+      .quick-actions {
+        justify-content: center;
+        gap: 10px;
+      }
+      .quick-btn {
+        padding: 12px 20px;
+        font-size: 13px;
+        border-radius: 10px;
+      }
+      
+      /* Contact form mobile */
+      .contact-form {
+        padding: 28px 24px;
+        border-radius: 20px;
+      }
+      .contact-form h3 {
+        font-size: 22px;
+      }
+      .contact-form>p {
+        font-size: 14px;
+        margin-bottom: 24px;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+      .form-group label {
+        font-size: 11px;
+      }
+      .form-group input, .form-group select, .form-group textarea {
+        padding: 14px 16px;
+        font-size: 16px; /* Prevent zoom on iOS */
+        border-radius: 12px;
+      }
+      .form-submit {
+        padding: 16px;
+        font-size: 15px;
+        margin-top: 12px;
+      }
+      
+      /* Map mobile */
+      .map-header h2 {
+        font-size: 26px;
+        letter-spacing: -1px;
+      }
+      .map-header p {
+        font-size: 14px;
+      }
+      .map-wrapper {
+        height: 250px;
+        border-radius: 16px;
+      }
+      .map-placeholder svg {
+        width: 48px;
+        height: 48px;
+      }
+      .map-placeholder p {
+        font-size: 14px;
+      }
+      
+      /* Footer mobile */
+      footer {
+        padding: 32px 20px;
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+      .footer-brand { font-size: 18px; }
+      .footer-links { gap: 20px; flex-wrap: wrap; justify-content: center; }
+      
+      /* Mobile touch feedback */
+      .contact-card:active, .quick-btn:active, .form-submit:active {
+        transform: scale(0.98);
+        transition: transform 0.1s;
+      }
+    }
+    
+    /* Extra small devices */
+    @media (max-width: 375px) {
+      .page-title { font-size: 28px; }
+      .contact-form { padding: 24px 20px; }
+      .quick-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+      .quick-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav id="navbar">
+  <a class="nav-logo" href="index.html"><span>NKB</span> Packaging</a>
+  <ul class="nav-links">
+    <li><a href="about.html">About Us</a></li>
+    <li class="nav-dropdown">
+      <span class="nav-dropdown-toggle">
+        Our Products
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </span>
+      <div class="nav-dropdown-menu">
+        <a href="bopp.html">BOPP Tape - Brown</a>
+        <a href="transparent.html">BOPP Tape - Transparent</a>
+        <a href="color.html">BOPP Tape - Color</a>
+        <a href="masking.html">Masking Tapes</a>
+        <a href="stretch.html">Stretch Films</a>
+        <a href="bio.html">Biodegradable Bags</a>
+        <a href="epe.html">EPE Foam Rolls</a>
+        <a href="bubble.html">Bubble Pouches</a>
+        <a href="roll.html">Bubble Rolls</a>
+        <a href="esd.html">ESD Bubble Pouches</a>
+        <a href="silver.html">Silver Pouches</a>
+        <a href="kraft.html">Kraft Paper Tape</a>
+      </div>
+    </li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+  <button class="nav-cta" onclick="window.location.href='contact.html'">Get a Quote</button>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-label reveal">Get In Touch</div>
+    <h1 class="page-title reveal">Let's Start a <em>Conversation</em></h1>
+    <p class="page-subtitle reveal">Have a packaging requirement? We'd love to hear from you. Reach out and our team will get back to you within 24 hours.</p>
+  </div>
+</section>
+
+<section class="contact-section">
+  <div class="contact-container">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div>
+          <h3>Contact Information</h3>
+          <p>Choose the most convenient way to reach us. We're here to help!</p>
+        </div>
+        
+        <a href="tel:+91XXXXXXXXXX" class="contact-card">
+          <div class="contact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="contact-details">
+            <h4>Phone</h4>
+            <p>+91 XXXXX XXXXX</p>
+            <span class="action">Click to call →</span>
+          </div>
+        </a>
+        
+        <a href="mailto:info@nkbpackaging.com" class="contact-card">
+          <div class="contact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="contact-details">
+            <h4>Email</h4>
+            <p>info@nkbpackaging.com<br>sales@nkbpackaging.com</p>
+            <span class="action">Click to email →</span>
+          </div>
+        </a>
+        
+        <div class="contact-card" style="cursor:default">
+          <div class="contact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="contact-details">
+            <h4>Location</h4>
+            <p>NKB Packaging Solutions<br>Industrial Area, India</p>
+          </div>
+        </div>
+        
+        <div class="quick-actions">
+          <a href="https://wa.me/91XXXXXXXXXX" class="quick-btn whatsapp" target="_blank">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.13 1.56 5.929L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp Us
+          </a>
+          <a href="tel:+91XXXXXXXXXX" class="quick-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call Now
+          </a>
+        </div>
+      </div>
+      
+      <div class="contact-form reveal">
+        <h3>Send us a Message</h3>
+        <p>Fill out the form below and we'll get back to you within 24 hours.</p>
+        <form action="https://formspree.io/f/mzdkdkbb" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="Full name" required />
+            </div>
+            <div class="form-group">
+              <label for="company">Company</label>
+              <input type="text" id="company" name="company" placeholder="Company name" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@company.com" />
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom:20px">
+            <label for="product">Product Interest</label>
+            <select id="product" name="product">
+              <option value="">Select product category</option>
+              <option>BOPP Tapes</option>
+              <option>Masking Tapes</option>
+              <option>Stretch Films</option>
+              <option>Biodegradable Bags</option>
+              <option>EPE Foam Rolls</option>
+              <option>ESD Bubble Pouches</option>
+              <option>Silver Pouches</option>
+              <option>Custom Branded Products</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us about your requirement..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">
+            Send Enquiry
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="map-section">
+  <div class="map-container">
+    <div class="map-header reveal">
+      <h2>Find Us</h2>
+      <p>Visit our facility to see our operations firsthand</p>
+    </div>
+    <div class="map-wrapper reveal">
+      <div class="map-placeholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <p>Google Maps Location</p>
+        <span>Add your Google Maps embed code here</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand"><span>NKB</span> Packaging Solutions</div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="index.html#products">Products</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="footer-copy">2024 NKB Packaging Solutions. All rights reserved.</div>
+</footer>
+
+<script>
+  const dot = document.getElementById('cursorDot');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.style.left = mx+'px'; dot.style.top = my+'px'; });
+  (function animateRing() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx+'px'; ring.style.top = ry+'px';
+    requestAnimationFrame(animateRing);
+  })();
+  document.querySelectorAll('a, button, .contact-card, .quick-btn').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('hover'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
+  });
+
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { 
+      if (entry.isIntersecting) { 
+        entry.target.classList.add('visible'); 
+      } 
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  const form = document.querySelector('.contact-form');
+  const formObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+  formObserver.observe(form);
+</script>
+
+</body>
+</html>

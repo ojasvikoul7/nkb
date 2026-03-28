@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bubble Pouches — NKB Packaging Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0a0806;
+  --primary:#1e3a8a;
+  --primary-mid:#1e40af;
+  --primary-light:#3b82f6;
+  --primary-pale:#dbeafe;
+  --accent:#1d4ed8;
+  --white:#ffffff;
+  --off:#eff6ff;
+  --gray:#64748b;
+  --border:#e2e8f0;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Barlow',sans-serif;
+  background:var(--off);
+  color:var(--ink);
+  overflow-x:hidden;
+  cursor:none;
+}
+
+/* CURSOR */
+.cur-d{width:7px;height:7px;background:var(--primary);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
+.cur-r{width:32px;height:32px;border:1.5px solid var(--primary);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,background .3s;opacity:.55}
+.cur-r.h{width:56px;height:56px;background:rgba(30,58,138,.06);opacity:1}
+
+/* NAV - Matches index.html */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 60px;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(0,0,0,.06);
+  transition:all .3s;
+}
+nav.scrolled{background:rgba(255,255,255,.98);box-shadow:0 4px 30px rgba(0,0,0,.08)}
+.nav-logo{
+  display:flex;align-items:center;gap:8px;
+  font-family:'Inter',sans-serif;
+  font-size:22px;font-weight:800;letter-spacing:-1px;
+  color:var(--ink);text-decoration:none;
+}
+.nav-logo span{color:var(--primary)}
+.nav-links{display:flex;gap:40px;list-style:none;margin:0;padding:0;align-items:center}
+.nav-links a{
+  font-size:13px;font-weight:600;color:var(--gray);
+  text-decoration:none;letter-spacing:.3px;
+  transition:color .2s;position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-6px;left:0;
+  width:0;height:2px;background:var(--primary);
+  transition:width .25s;
+}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{width:100%}
+.nav-dropdown{position:relative}
+.nav-dropdown-toggle{
+  display:flex;align-items:center;gap:6px;
+  cursor:pointer;
+  font-size:13px;font-weight:600;color:var(--gray);
+  letter-spacing:.3px;transition:color .2s;
+}
+.nav-dropdown-toggle:hover{color:var(--ink)}
+.nav-dropdown-toggle svg{transition:transform .2s}
+.nav-dropdown:hover .nav-dropdown-toggle svg{transform:rotate(180deg)}
+.nav-dropdown-menu{
+  position:absolute;top:100%;left:50%;
+  transform:translateX(-50%) translateY(10px);
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:12px;
+  min-width:240px;
+  opacity:0;
+  visibility:hidden;
+  transition:all .3s;
+  box-shadow:0 20px 60px rgba(0,0,0,.1);
+  z-index:1000;
+}
+.nav-dropdown:hover .nav-dropdown-menu{
+  opacity:1;
+  visibility:visible;
+  transform:translateX(-50%) translateY(0);
+}
+.nav-dropdown-menu a{
+  display:block;
+  padding:12px 16px;
+  border-radius:8px;
+  font-size:13px;
+  color:var(--ink);
+  transition:all .2s;
+}
+.nav-dropdown-menu a:hover{background:var(--off);color:var(--primary)}
+.nav-dropdown-menu a::after{display:none}
+.nav-cta{
+  padding:12px 28px;background:var(--primary);color:#fff;
+  font-size:13px;font-weight:600;border:none;border-radius:100px;
+  cursor:none;letter-spacing:.3px;transition:all .25s;
+}
+.nav-cta:hover{background:var(--primary-mid);transform:translateY(-2px);box-shadow:0 8px 24px rgba(30,58,138,.25)}
+
+/* ============ HERO ============ */
+.hero{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  position:relative;
+  overflow:hidden;
+  padding-top:80px;
+}
+
+/* Left — image zone */
+.hero-image-zone{
+  position:relative;
+  background:#ffffff;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+  min-height:100vh;
+}
+.image-noise{
+  position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:1;
+}
+.hero-photo-container{
+  position:relative;z-index:2;
+  width:80%;max-width:500px;
+  aspect-ratio:1/1;
+  background:transparent;
+  border-radius:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:20px;
+}
+.hero-photo-container img{
+  width:98%;height:98%;object-fit:contain;border-radius:0;
+}
+.photo-placeholder-icon{
+  width:64px;height:64px;
+  background:rgba(30,58,138,.1);
+  border-radius:16px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--primary);
+}
+.photo-placeholder-text{
+  font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;
+  color:var(--primary);
+  text-align:center;
+}
+
+/* big BG text */
+.bg-text-left{
+  position:absolute;bottom:-20px;left:-10px;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:180px;line-height:1;
+  color:rgba(30,58,138,.05);
+  pointer-events:none;z-index:0;
+  white-space:nowrap;
+}
+
+/* Right — content */
+.hero-content{
+  background:var(--white);
+  display:flex;flex-direction:column;justify-content:center;
+  padding:100px 64px 80px 72px;
+  position:relative;overflow:hidden;
+}
+.hero-content::before{
+  content:'';
+  position:absolute;top:-120px;right:-120px;
+  width:400px;height:400px;
+  background:radial-gradient(circle,rgba(59,130,246,.15),transparent 70%);
+  pointer-events:none;
+}
+
+.product-eyebrow{
+  display:flex;align-items:center;gap:12px;
+  margin-bottom:28px;
+  animation:fadeUp .7s cubic-bezier(.4,0,.2,1) .1s both;
+}
+.eyebrow-line{width:36px;height:3px;background:var(--primary);border-radius:2px}
+.eyebrow-text{
+  font-size:12px;font-weight:800;letter-spacing:3px;text-transform:uppercase;
+  color:var(--primary);
+}
+
+.product-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(72px,7vw,108px);
+  line-height:.92;
+  color:var(--ink);
+  letter-spacing:-1px;
+  margin-bottom:8px;
+  animation:fadeUp .8s cubic-bezier(.4,0,.2,1) .2s both;
+}
+.product-title .accent{color:var(--primary)}
+
+.product-subtitle{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(28px,3vw,42px);
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  color:var(--primary-light);
+  margin-bottom:32px;
+  animation:fadeUp .8s cubic-bezier(.4,0,.2,1) .3s both;
+}
+
+.product-desc{
+  font-size:16px;font-weight:400;
+  color:var(--gray);line-height:1.75;
+  max-width:480px;
+  margin-bottom:48px;
+  animation:fadeUp .8s cubic-bezier(.4,0,.2,1) .4s both;
+}
+.product-desc strong{color:var(--ink);font-weight:700}
+
+/* Spec pills */
+.spec-row{
+  display:flex;flex-wrap:wrap;gap:10px;
+  margin-bottom:48px;
+  animation:fadeUp .8s cubic-bezier(.4,0,.2,1) .5s both;
+}
+.spec-pill{
+  display:flex;align-items:center;gap:7px;
+  padding:8px 16px;
+  background:var(--primary-pale);
+  border:1px solid rgba(14,165,233,.15);
+  border-radius:100px;
+  font-size:12px;font-weight:700;
+  color:var(--primary);
+  letter-spacing:.3px;
+}
+.spec-pill svg{color:var(--primary-mid)}
+
+.cta-row{
+  display:flex;gap:14px;
+  animation:fadeUp .8s cubic-bezier(.4,0,.2,1) .6s both;
+}
+.btn-main{
+  padding:15px 32px;
+  background:var(--primary);color:#fff;
+  font-family:'Barlow',sans-serif;
+  font-size:14px;font-weight:700;
+  border:none;border-radius:100px;
+  cursor:none;letter-spacing:.5px;
+  transition:all .25s;
+  display:flex;align-items:center;gap:8px;
+}
+.btn-main:hover{background:var(--primary-mid);transform:translateY(-2px);box-shadow:0 12px 36px rgba(30,58,138,.35)}
+.btn-outline{
+  padding:15px 32px;
+  background:transparent;color:var(--ink);
+  font-family:'Barlow',sans-serif;
+  font-size:14px;font-weight:700;
+  border:1.5px solid var(--border);
+  border-radius:100px;cursor:none;
+  transition:all .25s;
+}
+.btn-outline:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-2px)}
+
+/* scroll indicator */
+.scroll-hint{
+  position:absolute;bottom:36px;right:64px;
+  display:flex;align-items:center;gap:10px;
+  font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(100,116,139,.5);
+  animation:fadeUp 1s .9s both;
+}
+.scroll-hint-line{
+  width:48px;height:1px;
+  background:linear-gradient(to right,var(--primary),transparent);
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(28px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ============ STATS - Animated bar chart style ============ */
+.stats-strip{
+  background:var(--primary);
+  padding:60px 80px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:40px;
+}
+.stat-block{
+  display:flex;
+  align-items:flex-end;
+  gap:20px;
+  position:relative;
+}
+.stat-bar-wrap{
+  width:24px;
+  height:120px;
+  background:rgba(255,255,255,.1);
+  border-radius:12px;
+  overflow:hidden;
+  position:relative;
+}
+.stat-bar{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  background:linear-gradient(to top,var(--accent),var(--primary-light));
+  border-radius:12px;
+  height:0;
+  transition:height 1.2s cubic-bezier(.4,0,.2,1);
+}
+.stat-block.on .stat-bar{
+  height:var(--target-height);
+}
+.stat-info{flex:1}
+.stat-num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:56px;line-height:1;
+  color:#fff;letter-spacing:1px;
+}
+.stat-unit{font-size:24px;color:var(--primary-light);margin-left:4px}
+.stat-label{
+  font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  color:rgba(255,255,255,.6);margin-top:4px;
+}
+@media(max-width:900px){
+  .stats-strip{grid-template-columns:repeat(2,1fr);padding:40px}
+}
+@media(max-width:500px){
+  .stats-strip{grid-template-columns:1fr}
+}
+
+/* ============ USES SECTION ============ */
+.uses{
+  padding:120px 80px;
+  background:var(--off);
+  position:relative;overflow:hidden;
+}
+.uses::before{
+  content:'USES';
+  position:absolute;right:-20px;top:40px;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:220px;line-height:1;
+  color:rgba(30,58,138,.05);
+  pointer-events:none;
+}
+.section-header{margin-bottom:72px}
+.section-label{
+  display:flex;align-items:center;gap:10px;
+  font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;
+  color:var(--primary);margin-bottom:14px;
+}
+.section-label-line{width:28px;height:2.5px;background:var(--primary);border-radius:2px}
+.section-heading{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(48px,5vw,80px);
+  line-height:.95;letter-spacing:-1px;
+  color:var(--ink);
+}
+.section-heading span{color:var(--primary)}
+
+.uses-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.use-card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:36px 32px;
+  position:relative;overflow:hidden;
+  transition:transform .4s cubic-bezier(.4,0,.2,1),box-shadow .4s,border-color .4s;
+  cursor:none;
+}
+.use-card:hover{
+  transform:translateY(-10px) scale(1.01);
+  box-shadow:0 28px 70px rgba(30,58,138,.15);
+  border-color:rgba(30,58,138,.25);
+}
+.use-card::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--primary),var(--accent));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .45s cubic-bezier(.4,0,.2,1);
+}
+.use-card:hover::before{transform:scaleX(1)}
+.use-num{
+  position:absolute;top:24px;right:28px;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:64px;line-height:1;
+  color:rgba(30,58,138,.07);
+  pointer-events:none;
+}
+.use-icon{
+  width:52px;height:52px;
+  background:var(--primary-pale);
+  border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;
+  transition:background .3s,transform .4s cubic-bezier(.4,0,.2,1);
+  color:var(--primary);
+}
+.use-card:hover .use-icon{background:var(--primary);color:#fff;transform:rotate(-6deg) scale(1.1)}
+.use-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:22px;font-weight:900;
+  text-transform:uppercase;letter-spacing:.5px;
+  color:var(--ink);margin-bottom:10px;
+}
+.use-desc{font-size:13.5px;color:var(--gray);line-height:1.7}
+
+/* ============ DIMENSIONS - Spec cards ============ */
+.dimensions{
+  padding:120px 80px;
+  background:var(--ink);
+  position:relative;overflow:hidden;
+}
+.dimensions::before{
+  content:'';
+  position:absolute;
+  width:600px;height:600px;
+  background:radial-gradient(circle,rgba(59,130,246,.12),transparent 70%);
+  top:-100px;right:-100px;pointer-events:none;
+}
+.dimensions .section-label{color:var(--accent)}
+.dimensions .section-label-line{background:var(--accent)}
+.dimensions .section-heading{color:#fff}
+.dimensions .section-heading span{color:var(--accent)}
+
+.spec-cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  margin-top:64px;
+}
+.spec-card{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:20px;
+  padding:32px;
+  position:relative;
+  overflow:hidden;
+  transition:all .4s cubic-bezier(.4,0,.2,1);
+}
+.spec-card:hover{
+  background:rgba(255,255,255,.06);
+  border-color:rgba(2,132,199,.3);
+  transform:translateY(-8px);
+}
+.spec-card-icon{
+  width:56px;height:56px;
+  background:rgba(2,132,199,.15);
+  border-radius:16px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--accent);
+  margin-bottom:20px;
+}
+.spec-card-title{
+  font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  color:rgba(255,255,255,.5);margin-bottom:16px;
+}
+.spec-card-values{
+  display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;
+}
+.spec-chip{
+  padding:8px 14px;
+  background:rgba(255,255,255,.08);
+  border-radius:100px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:18px;font-weight:800;
+  color:#fff;letter-spacing:.5px;
+}
+.spec-chip.highlight{
+  background:var(--accent);
+  color:#fff;
+}
+.spec-card-note{
+  font-size:12px;color:rgba(255,255,255,.4);
+}
+.custom-note-wide{
+  margin-top:40px;
+  background:rgba(2,132,199,.1);
+  border:1px solid rgba(2,132,199,.2);
+  border-radius:16px;
+  padding:24px 32px;
+  display:flex;align-items:center;gap:16px;
+  max-width:800px;
+}
+.custom-note-wide svg{color:var(--accent);flex-shrink:0}
+.custom-note-wide p{font-size:14px;color:rgba(255,255,255,.7);line-height:1.6;margin:0}
+.custom-note-wide strong{color:var(--accent)}
+@media(max-width:1000px){
+  .spec-cards{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .spec-cards{grid-template-columns:1fr}
+  .dimensions{padding:80px 24px}
+}
+
+/* ============ FEATURES - Timeline layout ============ */
+.features{
+  padding:120px 80px;
+  background:var(--off);
+  position:relative;overflow:hidden;
+}
+.features::before{
+  content:'WHY';
+  position:absolute;right:20px;top:60px;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:200px;line-height:1;
+  color:rgba(30,58,138,.04);
+  pointer-events:none;
+}
+.features-timeline{
+  max-width:800px;
+  margin:0 auto;
+  position:relative;
+  padding:20px 0;
+}
+.timeline-line{
+  position:absolute;
+  left:50%;
+  top:0;
+  bottom:0;
+  width:2px;
+  background:linear-gradient(to bottom,var(--primary),var(--primary-light),var(--primary));
+  transform:translateX(-50%);
+}
+.timeline-item{
+  display:flex;
+  align-items:center;
+  margin-bottom:60px;
+  position:relative;
+}
+.timeline-item:nth-child(odd){
+  flex-direction:row;
+  text-align:right;
+}
+.timeline-item:nth-child(odd) .timeline-content{
+  margin-right:60px;
+  margin-left:0;
+}
+.timeline-item:nth-child(even){
+  flex-direction:row-reverse;
+  text-align:left;
+}
+.timeline-item:nth-child(even) .timeline-content{
+  margin-left:60px;
+  margin-right:0;
+}
+.timeline-dot{
+  width:48px;height:48px;
+  background:var(--primary);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:18px;
+  flex-shrink:0;
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:2;
+  box-shadow:0 0 0 8px var(--off);
+}
+.timeline-content{
+  flex:1;
+  max-width:300px;
+}
+.timeline-content h4{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:20px;font-weight:800;
+  text-transform:uppercase;letter-spacing:.5px;
+  color:var(--ink);margin-bottom:8px;
+}
+.timeline-content p{
+  font-size:14px;color:var(--gray);line-height:1.6;
+}
+@media(max-width:700px){
+  .features{padding:80px 24px}
+  .timeline-line{left:24px}
+  .timeline-dot{left:24px}
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even){flex-direction:row;text-align:left}
+  .timeline-item:nth-child(odd) .timeline-content,
+  .timeline-item:nth-child(even) .timeline-content{margin-left:80px;margin-right:0}
+}
+
+/* ============ APPLICATIONS MARQUEE ============ */
+.app-marquee{
+  background:var(--primary-pale);
+  padding:20px 0;overflow:hidden;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.app-track{
+  display:flex;width:max-content;
+  animation:appScroll 22s linear infinite;
+}
+.app-item{
+  display:flex;align-items:center;gap:20px;
+  padding:0 36px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:15px;font-weight:900;text-transform:uppercase;letter-spacing:2px;
+  color:var(--primary);white-space:nowrap;
+}
+.app-sep{width:6px;height:6px;background:var(--primary-light);border-radius:50%;flex-shrink:0}
+@keyframes appScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ============ REVEAL - Strong visible animations ============ */
+.reveal{
+  opacity:0;
+  transform:translateY(60px) scale(0.95);
+  transition:opacity .9s cubic-bezier(.4,0,.2,1),transform .9s cubic-bezier(.4,0,.2,1),filter .9s;
+  filter:blur(8px);
+}
+.reveal.on{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  filter:blur(0);
+}
+
+/* Slide from left */
+.reveal-left{
+  opacity:0;
+  transform:translateX(-80px);
+  transition:opacity .8s cubic-bezier(.4,0,.2,1),transform .8s cubic-bezier(.4,0,.2,1);
+}
+.reveal-left.on{
+  opacity:1;
+  transform:translateX(0);
+}
+
+/* Slide from right */
+.reveal-right{
+  opacity:0;
+  transform:translateX(80px);
+  transition:opacity .8s cubic-bezier(.4,0,.2,1),transform .8s cubic-bezier(.4,0,.2,1);
+}
+.reveal-right.on{
+  opacity:1;
+  transform:translateX(0);
+}
+
+/* Scale up burst */
+.reveal-burst{
+  opacity:0;
+  transform:scale(0.7);
+  transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.34,1.56,.64,1);
+}
+.reveal-burst.on{
+  opacity:1;
+  transform:scale(1);
+}
+
+/* Flip in */
+.reveal-flip{
+  opacity:0;
+  transform:perspective(1000px) rotateX(-30deg) translateY(40px);
+  transition:opacity .8s cubic-bezier(.4,0,.2,1),transform .8s cubic-bezier(.4,0,.2,1);
+}
+.reveal-flip.on{
+  opacity:1;
+  transform:perspective(1000px) rotateX(0) translateY(0);
+}
+
+.rd1{transition-delay:.1s}.rd2{transition-delay:.2s}.rd3{transition-delay:.3s}.rd4{transition-delay:.4s}
+.rd5{transition-delay:.5s}.rd6{transition-delay:.6s}.rd7{transition-delay:.7s}
+
+/* ============ FOOTER ============ */
+.page-footer{
+  background:var(--ink);
+  padding:48px 80px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.pf-brand{font-family:'Bebas Neue',sans-serif;font-size:24px;color:#fff;letter-spacing:1px}
+.pf-brand span{color:var(--accent)}
+.pf-back{
+  display:flex;align-items:center;gap:10px;
+  text-decoration:none;
+  font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
+  color:rgba(255,255,255,.5);
+  transition:color .2s;cursor:none;
+}
+.pf-back:hover{color:var(--accent)}
+.pf-copy{font-size:12px;color:rgba(255,255,255,.3)}
+
+@media(max-width:1100px){
+  .hero{grid-template-columns:1fr}
+  .hero-image-zone{min-height:60vh}
+  .dim-grid{grid-template-columns:1fr}
+  .features-inner{grid-template-columns:1fr}
+  .uses-grid{grid-template-columns:1fr 1fr}
+  .stats-strip{flex-wrap:wrap}
+  .stat-item{min-width:50%}
+}
+@media(max-width:680px){
+  nav{padding:16px 24px}
+  .hero-content{padding:80px 28px 60px}
+  .uses{padding:80px 24px}
+  .uses-grid{grid-template-columns:1fr}
+  .dimensions{padding:80px 24px}
+  .features{padding:80px 24px}
+  .stats-strip{flex-direction:column}
+  .stat-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.1)}
+  .page-footer{flex-direction:column;gap:20px;text-align:center;padding:40px 24px}
+}
+</style>
+</head>
+<body>
+
+<div class="cur-d" id="cD"></div>
+<div class="cur-r" id="cR"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a class="nav-logo" href="index.html"><span>NKB</span> Packaging</a>
+  <ul class="nav-links">
+    <li><a href="about.html">About Us</a></li>
+    <li class="nav-dropdown">
+      <span class="nav-dropdown-toggle">
+        Our Products
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </span>
+      <div class="nav-dropdown-menu">
+        <a href="bopp.html">BOPP Tape - Brown</a>
+        <a href="transparent.html">BOPP Tape - Transparent</a>
+        <a href="color.html">BOPP Tape - Color</a>
+        <a href="masking.html">Masking Tapes</a>
+        <a href="stretch.html">Stretch Films</a>
+        <a href="bio.html">Biodegradable Bags</a>
+        <a href="epe.html">EPE Foam Rolls</a>
+        <a href="bubble.html">Bubble Pouches</a>
+        <a href="roll.html">Bubble Rolls</a>
+        <a href="esd.html">ESD Bubble Pouches</a>
+        <a href="silver.html">Silver Pouches</a>
+        <a href="kraft.html">Kraft Paper Tape</a>
+      </div>
+    </li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+  <button class="nav-cta" onclick="window.location.href='contact.html'">Get a Quote</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+  <!-- LEFT: IMAGE ZONE -->
+  <div class="hero-image-zone" style="background:var(--white);">
+    <div class="image-noise"></div>
+    <div class="bg-text-left">BUBBLE</div>
+
+    <div class="hero-photo-container reveal-burst">
+      <img src="bubble.png" alt="Bubble Pouches" onerror="this.style.display='none'; this.parentElement.querySelector('.photo-fallback').style.display='flex'"/>
+      <div class="photo-fallback" style="display:none;flex-direction:column;align-items:center;gap:16px;">
+        <div class="photo-placeholder-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+        <div class="photo-placeholder-text">bubble.png</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: CONTENT -->
+  <div class="hero-content">
+    <div class="product-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">NKB Packaging — Product</span>
+    </div>
+
+    <h1 class="product-title">
+      BUBBLE<br><span class="accent">POUCHES</span>
+    </h1>
+    <div class="product-subtitle">Protective Cushioning Solution</div>
+
+    <p class="product-desc">
+      Our <strong>Bubble Pouches</strong> provide superior protection for fragile items during shipping and handling. Each pouch features air-filled bubbles that absorb shock and prevent damage from impacts, vibrations, and compression.
+    </p>
+
+    <div class="spec-row">
+      <div class="spec-pill">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        Shock Absorbing
+      </div>
+      <div class="spec-pill">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+        Self-Sealing
+      </div>
+      <div class="spec-pill">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Lightweight
+      </div>
+      <div class="spec-pill">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Reusable
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <button class="btn-main" onclick="document.getElementById('contact-section').scrollIntoView({behavior:'smooth'})">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Request a Quote
+      </button>
+      <button class="btn-outline" onclick="document.getElementById('dimensions').scrollIntoView({behavior:'smooth'})">View Specs</button>
+    </div>
+
+    <div class="scroll-hint">
+      <div class="scroll-hint-line"></div>
+      Scroll to explore
+    </div>
+  </div>
+</section>
+
+<!-- STATS - Big bold numbers with animated bars -->
+<div class="stats-strip">
+  <div class="stat-block reveal">
+    <div class="stat-bar-wrap">
+      <div class="stat-bar" style="--target-height:10%"></div>
+    </div>
+    <div class="stat-info">
+      <div class="stat-num">10<span class="stat-unit">mm</span></div>
+      <div class="stat-label">Bubble Height</div>
+    </div>
+  </div>
+  <div class="stat-block reveal rd1">
+    <div class="stat-bar-wrap">
+      <div class="stat-bar" style="--target-height:80%"></div>
+    </div>
+    <div class="stat-info">
+      <div class="stat-num">80<span class="stat-unit">gsm</span></div>
+      <div class="stat-label">Film Weight</div>
+    </div>
+  </div>
+  <div class="stat-block reveal rd2">
+    <div class="stat-bar-wrap">
+      <div class="stat-bar" style="--target-height:100%"></div>
+    </div>
+    <div class="stat-info">
+      <div class="stat-num">100<span class="stat-unit">+</span></div>
+      <div class="stat-label">Sizes Available</div>
+    </div>
+  </div>
+  <div class="stat-block reveal rd3">
+    <div class="stat-bar-wrap">
+      <div class="stat-bar" style="--target-height:24%"></div>
+    </div>
+    <div class="stat-info">
+      <div class="stat-num">24<span class="stat-unit">mo</span></div>
+      <div class="stat-label">Shelf Life</div>
+    </div>
+  </div>
+</div>
+
+<!-- APPLICATIONS MARQUEE -->
+<div class="app-marquee">
+  <div class="app-track">
+    <div class="app-item">Electronics Protection<div class="app-sep"></div></div>
+    <div class="app-item">Glassware Shipping<div class="app-sep"></div></div>
+    <div class="app-item">Jewelry Packaging<div class="app-sep"></div></div>
+    <div class="app-item">Fragile Items<div class="app-sep"></div></div>
+    <div class="app-item">E-Commerce Shipping<div class="app-sep"></div></div>
+    <div class="app-item">Cosmetics<div class="app-sep"></div></div>
+    <div class="app-item">Pharmaceuticals<div class="app-sep"></div></div>
+    <div class="app-item">Retail Products<div class="app-sep"></div></div>
+    <!-- duplicate -->
+    <div class="app-item">Electronics Protection<div class="app-sep"></div></div>
+    <div class="app-item">Glassware Shipping<div class="app-sep"></div></div>
+    <div class="app-item">Jewelry Packaging<div class="app-sep"></div></div>
+    <div class="app-item">Fragile Items<div class="app-sep"></div></div>
+    <div class="app-item">E-Commerce Shipping<div class="app-sep"></div></div>
+    <div class="app-item">Cosmetics<div class="app-sep"></div></div>
+    <div class="app-item">Pharmaceuticals<div class="app-sep"></div></div>
+    <div class="app-item">Retail Products<div class="app-sep"></div></div>
+  </div>
+</div>
+
+<!-- USES -->
+<section class="uses">
+  <div class="section-header reveal">
+    <div class="section-label"><div class="section-label-line"></div> Applications</div>
+    <h2 class="section-heading">Where It <span>Works</span></h2>
+  </div>
+  <div class="uses-grid">
+    <div class="use-card reveal rd1">
+      <div class="use-num">01</div>
+      <div class="use-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 12h8M12 8v8"/></svg>
+      </div>
+      <div class="use-title">Electronics Protection</div>
+      <div class="use-desc">Ideal for smartphones, tablets, laptops, and accessories. Provides cushioning against drops and impacts during shipping.</div>
+    </div>
+    <div class="use-card reveal rd2">
+      <div class="use-num">02</div>
+      <div class="use-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
+      </div>
+      <div class="use-title">Jewelry & Watches</div>
+      <div class="use-desc">Soft bubble lining prevents scratches on precious metals, gemstones, and watch faces while providing impact protection.</div>
+    </div>
+    <div class="use-card reveal rd3">
+      <div class="use-num">03</div>
+      <div class="use-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <div class="use-title">Glassware & Ceramics</div>
+      <div class="use-desc">Essential for shipping fragile glass items, ceramics, porcelain, and decorative items that require cushioning.</div>
+    </div>
+    <div class="use-card reveal rd2">
+      <div class="use-num">04</div>
+      <div class="use-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="use-title">Cosmetics & Pharmaceuticals</div>
+      <div class="use-desc">Protects delicate glass bottles, vials, and cosmetic containers from breakage during transport and handling.</div>
+    </div>
+    <div class="use-card reveal rd3">
+      <div class="use-num">05</div>
+      <div class="use-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <div class="use-title">E-Commerce Fulfillment</div>
+      <div class="use-desc">Quick and efficient protection for online orders. Self-sealing pouches speed up packing processes in busy warehouses.</div>
+    </div>
+    <div class="use-card reveal rd4">
+      <div class="use-num">06</div>
+      <div class="use-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <div class="use-title">Retail Display</div>
+      <div class="use-desc">Clear bubble pouches allow product visibility while protecting items on retail shelves and in customer handling.</div>
+    </div>
+  </div>
+</section>
+
+<!-- DIMENSIONS - Visual spec cards instead of tables -->
+<section class="dimensions" id="dimensions">
+  <div class="section-header reveal">
+    <div class="section-label"><div class="section-label-line"></div> Technical Data</div>
+    <h2 class="section-heading">Dimensions <span>&amp; Specs</span></h2>
+  </div>
+
+  <div class="spec-cards">
+    <div class="spec-card reveal">
+      <div class="spec-card-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 6v12M18 6v12"/></svg>
+      </div>
+      <div class="spec-card-title">Pouch Sizes</div>
+      <div class="spec-card-values">
+        <span class="spec-chip">4"x6"</span>
+        <span class="spec-chip">6"x9"</span>
+        <span class="spec-chip">8"x12"</span>
+      </div>
+      <div class="spec-card-note">Custom sizes available</div>
+    </div>
+
+    <div class="spec-card reveal rd1">
+      <div class="spec-card-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
+      </div>
+      <div class="spec-card-title">Bubble Size</div>
+      <div class="spec-card-values">
+        <span class="spec-chip highlight">10mm</span>
+        <span class="spec-chip">5mm</span>
+      </div>
+      <div class="spec-card-note">Standard • Small bubble</div>
+    </div>
+
+    <div class="spec-card reveal rd2">
+      <div class="spec-card-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <div class="spec-card-title">Film Material</div>
+      <div class="spec-card-values">
+        <span class="spec-chip highlight">LDPE</span>
+        <span class="spec-chip">HDPE</span>
+      </div>
+      <div class="spec-card-note">Low/High density polyethylene</div>
+    </div>
+
+    <div class="spec-card reveal rd3">
+      <div class="spec-card-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="spec-card-title">Closure Type</div>
+      <div class="spec-card-values">
+        <span class="spec-chip highlight">Self-Seal</span>
+        <span class="spec-chip">Open</span>
+      </div>
+      <div class="spec-card-note">Adhesive strip • Plain</div>
+    </div>
+
+    <div class="spec-card reveal reveal-flip rd2">
+      <div class="spec-card-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div class="spec-card-title">Shelf Life</div>
+      <div class="spec-card-values">
+        <span class="spec-chip highlight">24 months</span>
+      </div>
+      <div class="spec-card-note">When stored properly</div>
+    </div>
+
+    <div class="spec-card reveal reveal-flip rd3">
+      <div class="spec-card-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+      </div>
+      <div class="spec-card-title">Packaging</div>
+      <div class="spec-card-values">
+        <span class="spec-chip highlight">100/box</span>
+        <span class="spec-chip">500/box</span>
+      </div>
+      <div class="spec-card-note">Standard bulk packs</div>
+    </div>
+  </div>
+
+  <div class="custom-note-wide reveal rd4">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <p><strong>Custom printing available</strong> — Add your logo, branding, or handling instructions to bubble pouches. <span style="color:var(--accent)">Contact us for custom options.</span></p>
+  </div>
+</section>
+
+<!-- FEATURES - Zigzag timeline layout -->
+<section class="features">
+  <div class="section-header reveal" style="text-align:center;max-width:600px;margin:0 auto 80px;">
+    <div class="section-label" style="justify-content:center;"><div class="section-label-line"></div> Why This Product</div>
+    <h2 class="section-heading">What Makes It <span style="color:var(--primary)">Different</span></h2>
+    <p style="font-size:16px;color:var(--gray);line-height:1.7;margin-top:20px;">Our bubble pouches combine superior protection with convenience and versatility.</p>
+  </div>
+
+  <div class="features-timeline">
+    <div class="timeline-line"></div>
+    
+    <div class="timeline-item reveal-left">
+      <div class="timeline-dot">01</div>
+      <div class="timeline-content">
+        <h4>Superior Cushioning</h4>
+        <p>Multi-chamber bubble design provides consistent air cushioning that absorbs multiple impacts and vibrations during transit.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal-right">
+      <div class="timeline-dot">02</div>
+      <div class="timeline-content">
+        <h4>Self-Sealing Convenience</h4>
+        <p>Peel-and-seal adhesive strip creates a secure closure without additional tape. Quick and efficient for high-volume packing.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal-left">
+      <div class="timeline-dot">03</div>
+      <div class="timeline-content">
+        <h4>Lightweight & Cost-Effective</h4>
+        <p>Minimal weight addition reduces shipping costs while providing maximum protection. More economical than foam or rigid packaging.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal-right">
+      <div class="timeline-dot">04</div>
+      <div class="timeline-content">
+        <h4>Clear Visibility</h4>
+        <p>Transparent material allows easy product identification and barcode scanning without opening the protective pouch.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal-left">
+      <div class="timeline-dot">05</div>
+      <div class="timeline-content">
+        <h4>Reusable & Recyclable</h4>
+        <p>Durable construction allows multiple uses. Made from recyclable LDPE material for environmentally conscious disposal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT CTA -->
+<section style="background:var(--primary);padding:100px 80px;position:relative;overflow:hidden;" id="contact-section">
+  <div style="position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,255,255,.08),transparent 70%);pointer-events:none"></div>
+  <div style="position:absolute;bottom:-60px;left:20%;width:300px;height:300px;background:radial-gradient(circle,rgba(0,0,0,.15),transparent 70%);pointer-events:none"></div>
+
+  <div style="max-width:700px;position:relative;z-index:1" class="reveal">
+    <div style="font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:16px">Ready to Order?</div>
+    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,7vw,96px);line-height:.9;color:#fff;letter-spacing:-1px;margin-bottom:24px">
+      PROTECT YOUR<br><span style="color:var(--accent)">PRODUCTS</span><br>TODAY
+    </h2>
+    <p style="font-size:16px;color:rgba(255,255,255,.65);line-height:1.75;max-width:480px;margin-bottom:48px">
+      Available in multiple sizes and bubble configurations. Custom sizes and branding options available for bulk orders.
+    </p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap">
+      <a href="index.html#contact" style="display:inline-flex;align-items:center;gap:10px;padding:16px 36px;background:#fff;color:var(--primary);font-family:'Barlow',sans-serif;font-size:14px;font-weight:700;border-radius:100px;text-decoration:none;transition:all .25s;letter-spacing:.3px;cursor:none">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Request a Quote
+      </a>
+      <a href="index.html#products" style="display:inline-flex;align-items:center;gap:10px;padding:16px 36px;background:transparent;color:rgba(255,255,255,.8);font-family:'Barlow',sans-serif;font-size:14px;font-weight:700;border:1.5px solid rgba(255,255,255,.3);border-radius:100px;text-decoration:none;transition:all .25s;cursor:none">
+        View All Products
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="page-footer">
+  <div class="pf-brand"><span>NKB</span> Packaging Solutions</div>
+  <div style="display:flex;gap:28px">
+    <a href="index.html" style="font-size:13px;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s">Home</a>
+    <a href="about.html" style="font-size:13px;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s">About</a>
+    <a href="index.html#products" style="font-size:13px;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s">Products</a>
+    <a href="contact.html" style="font-size:13px;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s">Contact</a>
+  </div>
+  <div class="pf-copy">© 2024 NKB Packaging Solutions</div>
+</footer>
+
+<script>
+// Cursor
+const cD=document.getElementById('cD'), cR=document.getElementById('cR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cD.style.left=mx+'px';cD.style.top=my+'px'});
+(function loop(){rx+=(mx-rx)*.11;ry+=(my-ry)*.11;cR.style.left=rx+'px';cR.style.top=ry+'px';requestAnimationFrame(loop)})();
+document.querySelectorAll('button,a,.use-card,.stat-item,.spec-row-item,.feat-item').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cR.classList.add('h'));
+  el.addEventListener('mouseleave',()=>cR.classList.remove('h'));
+});
+
+// Scroll reveal
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.15});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-burst,.reveal-flip').forEach(el=>obs.observe(el));
+
+// Navbar scroll effect
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{
+  navbar.classList.toggle('scrolled',window.scrollY>60);
+});
+
+// Counter animation for stat numbers
+const counters = document.querySelectorAll('.stat-num');
+const counterObs = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const el = entry.target;
+      const full = el.innerHTML;
+      const unit = el.querySelector('.stat-unit')?.outerHTML||'';
+      const numStr = el.textContent.replace(/[^0-9.]/g,'');
+      const target = parseFloat(numStr);
+      if(isNaN(target)||target===0){return}
+      let start=0; const dur=1400;
+      const startTime=performance.now();
+      const tick=now=>{
+        const p=Math.min((now-startTime)/dur,1);
+        const ease=1-Math.pow(1-p,3);
+        const cur=Math.round(target*ease);
+        el.innerHTML = cur + unit;
+        if(p<1) requestAnimationFrame(tick);
+        else el.innerHTML = full;
+      };
+      requestAnimationFrame(tick);
+      counterObs.unobserve(el);
+    }
+  });
+},{threshold:.5});
+counters.forEach(c=>counterObs.observe(c));
+</script>
+</body>
+</html>
