@@ -669,16 +669,79 @@ nav.scrolled{background:rgba(255,255,255,.98);box-shadow:0 4px 30px rgba(0,0,0,.
   .stats-strip{flex-wrap:wrap}
   .stat-item{min-width:50%}
 }
-@media(max-width:680px){
-  nav{padding:16px 24px}
-  .hero-content{padding:80px 28px 60px}
-  .uses{padding:80px 24px}
-  .uses-grid{grid-template-columns:1fr}
-  .dimensions{padding:80px 24px}
-  .features{padding:80px 24px}
-  .stats-strip{flex-direction:column}
-  .stat-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.1)}
-  .page-footer{flex-direction:column;gap:20px;text-align:center;padding:40px 24px}
+@media(max-width:768px){
+  .cur-d, .cur-r { display: none; }
+  body { cursor: auto; }
+  nav { top: 12px; left: 50%; right: auto; transform: translateX(-50%); width: calc(100% - 32px); padding: 10px 16px; border-radius: 50px; border-bottom: none; }
+  nav.scrolled { top: 8px; padding: 8px 14px; }
+  .nav-logo { font-size: 16px; }
+  .nav-links { display: none; }
+  .nav-cta { padding: 8px 16px; font-size: 12px; }
+  .hero { grid-template-columns: 1fr; padding-top: 70px; }
+  .hero-image-zone { min-height: 40vh; order: 2; }
+  .hero-photo-container { width: 70%; }
+  .bg-text-left { font-size: 80px; bottom: -10px; }
+  .hero-content { padding: 40px 24px 60px; order: 1; }
+  .product-title { font-size: clamp(48px, 12vw, 72px); letter-spacing: -1px; }
+  .product-subtitle { font-size: clamp(20px, 5vw, 28px); margin-bottom: 24px; }
+  .product-desc { font-size: 15px; margin-bottom: 32px; }
+  .spec-row { margin-bottom: 32px; }
+  .spec-pill { padding: 6px 12px; font-size: 11px; }
+  .cta-row { flex-direction: column; gap: 12px; }
+  .btn-main, .btn-outline { width: 100%; justify-content: center; padding: 14px 24px; font-size: 13px; }
+  .scroll-hint { display: none; }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); padding: 40px 20px; gap: 24px; }
+  .stat-item { gap: 12px; }
+  .stat-bar-wrap { width: 16px; height: 80px; }
+  .stat-num { font-size: 36px; }
+  .stat-unit { font-size: 18px; }
+  .stat-label { font-size: 10px; }
+  .uses { padding: 60px 20px; }
+  .uses::before { font-size: 100px; top: 20px; right: -10px; }
+  .section-header { margin-bottom: 40px; }
+  .section-label { font-size: 10px; letter-spacing: 2px; }
+  .section-heading { font-size: clamp(36px, 10vw, 48px); }
+  .uses-grid { grid-template-columns: 1fr; gap: 16px; }
+  .use-card { padding: 28px 24px; border-radius: 18px; }
+  .use-num { font-size: 48px; top: 16px; right: 20px; }
+  .use-icon { width: 44px; height: 44px; }
+  .use-title { font-size: 18px; }
+  .use-desc { font-size: 13px; }
+  .dimensions { padding: 60px 20px; }
+  .dimensions::before { width: 300px; height: 300px; }
+  .spec-cards { grid-template-columns: 1fr; gap: 16px; margin-top: 40px; }
+  .spec-card { padding: 24px; border-radius: 16px; }
+  .spec-card-icon { width: 44px; height: 44px; }
+  .spec-card-title { font-size: 11px; }
+  .spec-chip { font-size: 16px; padding: 6px 12px; }
+  .custom-note-wide { flex-direction: column; padding: 20px 24px; text-align: center; }
+  .features { padding: 60px 20px; }
+  .features::before { font-size: 80px; top: 20px; }
+  .features-timeline { padding: 10px 0; }
+  .timeline-line { left: 20px; }
+  .timeline-dot { left: 20px; width: 36px; height: 36px; font-size: 14px; box-shadow: 0 0 0 6px var(--off); }
+  .timeline-item { margin-bottom: 40px; }
+  .timeline-item:nth-child(odd), .timeline-item:nth-child(even) { flex-direction: row; text-align: left; }
+  .timeline-item:nth-child(odd) .timeline-content, .timeline-item:nth-child(even) .timeline-content { margin-left: 60px; margin-right: 0; }
+  .timeline-content h4 { font-size: 17px; }
+  .timeline-content p { font-size: 13px; }
+  .app-item { font-size: 12px; padding: 0 20px; gap: 12px; }
+  .reveal { transform: translateY(40px) scale(0.95); filter: blur(4px); }
+  .reveal.on { transform: translateY(0) scale(1); filter: blur(0); }
+  .reveal-left { transform: translateX(-40px); }
+  .reveal-right { transform: translateX(40px); }
+  .page-footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 20px; }
+  .pf-brand { font-size: 20px; }
+  .pf-back { font-size: 12px; }
+  .pf-copy { font-size: 11px; }
+  .use-card:active, .spec-card:active, .btn-main:active, .btn-outline:active { transform: scale(0.98); transition: transform 0.1s; }
+}
+@media(max-width:375px){
+  .product-title { font-size: 40px; }
+  .product-subtitle { font-size: 18px; }
+  .stats-strip { grid-template-columns: 1fr; }
+  .stat-bar-wrap { height: 60px; }
+  .stat-num { font-size: 32px; }
 }
 </style>
 </head>
@@ -1049,6 +1112,100 @@ nav.scrolled{background:rgba(255,255,255,.98);box-shadow:0 4px 30px rgba(0,0,0,.
         View All Products
       </a>
     </div>
+  </div>
+</section>
+
+<!-- OTHER PRODUCTS -->
+<section class="other-products">
+  <div class="other-products-header">
+    <h2 class="other-products-title">Other Products</h2>
+    <p class="other-products-subtitle">Explore our complete packaging solutions range</p>
+  </div>
+  <div class="other-products-grid">
+    <a href="bopp.html" class="other-product-card">
+      <div class="other-product-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+      </div>
+      <div class="other-product-name">Brown BOPP Tape</div>
+      <div class="other-product-tag">Industrial</div>
+    </a>
+    <a href="transparent.html" class="other-product-card">
+      <div class="other-product-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+      </div>
+      <div class="other-product-name">Transparent BOPP</div>
+      <div class="other-product-tag">Clear Tape</div>
+    </a>
+    <a href="color.html" class="other-product-card">
+      <div class="other-product-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+      </div>
+      <div class="other-product-name">Color BOPP</div>
+      <div class="other-product-tag">Colored Tape</div>
+    </a>
+    <a href="masking.html" class="other-product-card">
+      <div class="other-product-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <div class="other-product-name">Masking Tapes</div>
+      <div class="other-product-tag">Industrial</div>
+    </a>
+    <a href="stretch.html" class="other-product-card">
+      <div class="other-product-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+      </div>
+      <div class="other-product-name">Stretch Films</div>
+      <div class="other-product-tag">Pallet Wrap</div>
+    </a>
+    <a href="bio.html" class="other-product-card">
+      <div class="other-product-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div class="other-product-name">Biodegradable Bags</div>
+      <div class="other-product-tag">Eco-Certified</div>
+    </a>
+    <a href="epe.html" class="other-product-card">
+      <div class="other-product-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="other-product-name">EPE Foam Rolls</div>
+      <div class="other-product-tag">Cushioning</div>
+    </a>
+    <a href="bubble.html" class="other-product-card">
+      <div class="other-product-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+      </div>
+      <div class="other-product-name">Bubble Pouches</div>
+      <div class="other-product-tag">Protection</div>
+    </a>
+    <a href="roll.html" class="other-product-card">
+      <div class="other-product-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 6v12M18 6v12"/></svg>
+      </div>
+      <div class="other-product-name">Bubble Rolls</div>
+      <div class="other-product-tag">Versatile</div>
+    </a>
+    <a href="esd.html" class="other-product-card">
+      <div class="other-product-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      </div>
+      <div class="other-product-name">ESD Bubble Pouches</div>
+      <div class="other-product-tag">Anti-Static</div>
+    </a>
+    <a href="silver.html" class="other-product-card">
+      <div class="other-product-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2M8 7V5a2 2 0 0 1 4 0"/><circle cx="12" cy="14" r="2"/></svg>
+      </div>
+      <div class="other-product-name">Silver Pouches</div>
+      <div class="other-product-tag">Barrier Pack</div>
+    </a>
+    <a href="kraft.html" class="other-product-card">
+      <div class="other-product-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+      </div>
+      <div class="other-product-name">Kraft Paper Tape</div>
+      <div class="other-product-tag">Eco-Friendly</div>
+    </a>
   </div>
 </section>
 

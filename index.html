@@ -582,28 +582,21 @@
     justify-content: center;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(-45deg, #fafbfc, #f0f4f8, #e8eef5, #f5f7fa);
-    background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f8fafc 100%);
     padding: 120px 6% 60px;
-  }
-  @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
   }
   .hero::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0; height: 70%;
-    background: radial-gradient(ellipse at 50% 0%, rgba(0,40,151,0.06) 0%, transparent 55%);
+    top: 0; left: 0; width: 40%; height: 100%;
+    background: radial-gradient(ellipse at 0% 50%, rgba(0,40,151,0.04) 0%, transparent 70%);
     pointer-events: none;
   }
   .hero::after {
     content: '';
     position: absolute;
-    bottom: 0; left: 0; right: 0; height: 50%;
-    background: radial-gradient(ellipse at 50% 100%, rgba(0,198,255,0.04) 0%, transparent 50%);
+    top: 0; right: 0; width: 40%; height: 100%;
+    background: radial-gradient(ellipse at 100% 50%, rgba(0,198,255,0.03) 0%, transparent 70%);
     pointer-events: none;
   }
   .hero-grid {
@@ -1449,11 +1442,29 @@
       padding: 6px 12px;
     }
     .nav-logo { font-size: 16px; }
-    .nav-links { display: none; }
+    .nav-links { 
+      display: flex;
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(16px);
+      padding: 8px 16px;
+      border-radius: 50px;
+      box-shadow: 0 4px 20px rgba(0,40,151,0.15);
+      gap: 4px;
+      z-index: 999;
+    }
+    .nav-links a {
+      padding: 8px 14px;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    .nav-dropdown { display: none; }
     .nav-cta { 
       padding: 8px 16px; 
-      font-size: 13px;
-      box-shadow: 0 2px 8px rgba(0,40,151,0.2);
+      font-size: 12px;
     }
     
     /* Mobile menu button */
@@ -1522,22 +1533,31 @@
       transition: all 0.6s cubic-bezier(0.4,0,0.2,1);
     }
     
-    /* Products grid mobile */
+    /* Products grid mobile - 2 per row */
     .products-grid { 
-      grid-template-columns: 1fr; 
-      gap: 16px;
+      grid-template-columns: repeat(2, 1fr); 
+      gap: 12px;
     }
-    .product-card.featured { grid-column: span 1; }
+    .product-card.featured { grid-column: span 2; }
     .product-card {
-      padding: 24px;
-      border-radius: 16px;
+      padding: 20px;
+      border-radius: 14px;
     }
-    .card-name { font-size: 18px; }
-    .card-desc { font-size: 14px; }
+    .card-name { font-size: 15px; }
+    .card-desc { 
+      font-size: 12px; 
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
     .card-icon-bg {
-      width: 48px;
-      height: 48px;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
     }
+    .card-tag { font-size: 10px; padding: 3px 8px; }
     
     /* Section titles mobile */
     .section-title {
@@ -1696,10 +1716,6 @@
   <div class="hero-orb orb-3"></div>
   <div class="hero-grid"></div>
   <div class="hero-content">
-    <div class="hero-badge">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-      Trusted Across India's Top Industries
-    </div>
     <h1 class="hero-title">
       <span class="line"><span>NKB <em>Packaging</em></span></span>
     </h1>
@@ -1881,7 +1897,7 @@
   <div class="section-label reveal">What We Make</div>
   <h2 class="section-title reveal reveal-delay-1">Products Built for <em>Performance</em></h2>
   <div class="products-grid">
-    <div class="product-card featured reveal reveal-delay-1">
+    <div class="product-card featured reveal reveal-delay-1" onclick="window.location.href='bopp.html'" style="cursor: pointer;">
       <div class="card-icon-bg">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
       </div>
@@ -1889,7 +1905,7 @@
       <div class="card-desc">Industrial-grade Brown, Transparent & Color variants. Superior adhesion, silent unwind, and consistent tensile strength.</div>
       <span class="card-tag">Most Popular</span>
     </div>
-    <div class="product-card reveal reveal-delay-2">
+    <div class="product-card reveal reveal-delay-2" onclick="window.location.href='masking.html'" style="cursor: pointer;">
       <div class="card-icon-bg">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
       </div>
@@ -1897,7 +1913,7 @@
       <div class="card-desc">Clean removal, precise masking. Ideal for painting, surface protection, and automotive finishing.</div>
       <span class="card-tag">Industrial</span>
     </div>
-    <div class="product-card reveal reveal-delay-3">
+    <div class="product-card reveal reveal-delay-3" onclick="window.location.href='stretch.html'" style="cursor: pointer;">
       <div class="card-icon-bg">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
       </div>
@@ -1905,7 +1921,7 @@
       <div class="card-desc">Multi-layer LLDPE stretch wraps for pallet stability. Ultra-clear, high cling, and tear-resistant.</div>
       <span class="card-tag">Pallet Wrap</span>
     </div>
-    <div class="product-card reveal reveal-delay-4">
+    <div class="product-card reveal reveal-delay-4" onclick="window.location.href='bio.html'" style="cursor: pointer;">
       <div class="card-icon-bg">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       </div>
@@ -1913,7 +1929,7 @@
       <div class="card-desc">Eco-certified, fully compostable packaging. Meet sustainability mandates without compromising on strength.</div>
       <span class="card-tag">Eco-Certified</span>
     </div>
-    <div class="product-card reveal reveal-delay-2">
+    <div class="product-card reveal reveal-delay-2" onclick="window.location.href='epe.html'" style="cursor: pointer;">
       <div class="card-icon-bg">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       </div>
@@ -1921,7 +1937,7 @@
       <div class="card-desc">Expanded polyethylene cushioning for fragile goods. Lightweight, moisture-resistant, and shock-absorbing.</div>
       <span class="card-tag">Cushioning</span>
     </div>
-    <div class="product-card reveal reveal-delay-3">
+    <div class="product-card reveal reveal-delay-3" onclick="window.location.href='esd.html'" style="cursor: pointer;">
       <div class="card-icon-bg">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
       </div>
@@ -1929,7 +1945,7 @@
       <div class="card-desc">Anti-static protection for electronics and sensitive components. Pink/metallic layers with certified ESD compliance.</div>
       <span class="card-tag">Anti-Static</span>
     </div>
-    <div class="product-card reveal reveal-delay-4">
+    <div class="product-card reveal reveal-delay-4" onclick="window.location.href='silver.html'" style="cursor: pointer;">
       <div class="card-icon-bg">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2M8 7V5a2 2 0 0 1 4 0"/><circle cx="12" cy="14" r="2"/></svg>
       </div>
@@ -1937,7 +1953,7 @@
       <div class="card-desc">Metalized barrier pouches offering superior moisture, oxygen, and light protection for sensitive materials.</div>
       <span class="card-tag">Barrier Pack</span>
     </div>
-    <div class="product-card reveal reveal-delay-1">
+    <div class="product-card reveal reveal-delay-1" onclick="window.location.href='kraft.html'" style="cursor: pointer;">
       <div class="card-icon-bg">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
       </div>
@@ -1945,7 +1961,7 @@
       <div class="card-desc">100% recyclable natural paper tape with strong adhesion. Eco-friendly solution for sustainable packaging.</div>
       <span class="card-tag">Eco-Friendly</span>
     </div>
-    <div class="product-card reveal reveal-delay-2">
+    <div class="product-card reveal reveal-delay-2" onclick="window.location.href='bubble.html'" style="cursor: pointer;">
       <div class="card-icon-bg">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
       </div>
@@ -1953,7 +1969,7 @@
       <div class="card-desc">Self-sealing protective pouches with bubble cushioning. Perfect for electronics, glassware, and fragile items.</div>
       <span class="card-tag">Protection</span>
     </div>
-    <div class="product-card reveal reveal-delay-3">
+    <div class="product-card reveal reveal-delay-3" onclick="window.location.href='roll.html'" style="cursor: pointer;">
       <div class="card-icon-bg">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 6v12M18 6v12"/></svg>
       </div>

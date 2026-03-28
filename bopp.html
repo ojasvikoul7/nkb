@@ -924,14 +924,111 @@ nav.scrolled{background:rgba(255,255,255,.98);box-shadow:0 4px 30px rgba(0,0,0,.
   .pf-back {
     font-size: 12px;
   }
-  .pf-copy {
-    font-size: 11px;
+}
+
+/* Mobile touch feedback */
+.use-card:active, .spec-card:active, .btn-main:active, .btn-outline:active {
+  transform: scale(0.98);
+  transition: transform 0.1s;
+}
+
+/* Other Products Section */
+.other-products {
+  background: var(--white);
+  padding: 100px 80px;
+  border-top: 1px solid var(--border);
+}
+.other-products-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.other-products-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(40px, 5vw, 64px);
+  color: var(--ink);
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+.other-products-subtitle {
+  font-size: 16px;
+  color: var(--gray);
+}
+.other-products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.other-product-card {
+  background: var(--off);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.other-product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  border-color: var(--brown);
+}
+.other-product-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--brown);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  color: #fff;
+}
+.other-product-name {
+  font-family: 'Barlow', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.other-product-tag {
+  font-size: 11px;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@media(max-width:1100px){
+  .other-products-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
-  
-  /* Mobile touch feedback */
-  .use-card:active, .spec-card:active, .btn-main:active, .btn-outline:active {
-    transform: scale(0.98);
-    transition: transform 0.1s;
+}
+
+@media(max-width:768px){
+  .other-products {
+    padding: 60px 20px;
+  }
+  .other-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .other-product-card {
+    padding: 16px;
+    border-radius: 12px;
+  }
+  .other-product-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .other-product-name {
+    font-size: 13px;
+  }
+  .other-product-tag {
+    font-size: 10px;
   }
 }
 
@@ -1311,6 +1408,93 @@ nav.scrolled{background:rgba(255,255,255,.98);box-shadow:0 4px 30px rgba(0,0,0,.
         View All Products
       </a>
     </div>
+  </div>
+</section>
+
+<!-- OTHER PRODUCTS -->
+<section class="other-products">
+  <div class="other-products-header">
+    <h2 class="other-products-title">Other Products</h2>
+    <p class="other-products-subtitle">Explore our complete packaging solutions range</p>
+  </div>
+  <div class="other-products-grid">
+    <a href="transparent.html" class="other-product-card">
+      <div class="other-product-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+      </div>
+      <div class="other-product-name">Transparent BOPP</div>
+      <div class="other-product-tag">Clear Tape</div>
+    </a>
+    <a href="color.html" class="other-product-card">
+      <div class="other-product-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+      </div>
+      <div class="other-product-name">Color BOPP</div>
+      <div class="other-product-tag">Colored Tape</div>
+    </a>
+    <a href="masking.html" class="other-product-card">
+      <div class="other-product-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <div class="other-product-name">Masking Tapes</div>
+      <div class="other-product-tag">Industrial</div>
+    </a>
+    <a href="stretch.html" class="other-product-card">
+      <div class="other-product-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+      </div>
+      <div class="other-product-name">Stretch Films</div>
+      <div class="other-product-tag">Pallet Wrap</div>
+    </a>
+    <a href="bio.html" class="other-product-card">
+      <div class="other-product-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div class="other-product-name">Biodegradable Bags</div>
+      <div class="other-product-tag">Eco-Certified</div>
+    </a>
+    <a href="epe.html" class="other-product-card">
+      <div class="other-product-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="other-product-name">EPE Foam Rolls</div>
+      <div class="other-product-tag">Cushioning</div>
+    </a>
+    <a href="bubble.html" class="other-product-card">
+      <div class="other-product-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+      </div>
+      <div class="other-product-name">Bubble Pouches</div>
+      <div class="other-product-tag">Protection</div>
+    </a>
+    <a href="roll.html" class="other-product-card">
+      <div class="other-product-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 6v12M18 6v12"/></svg>
+      </div>
+      <div class="other-product-name">Bubble Rolls</div>
+      <div class="other-product-tag">Versatile</div>
+    </a>
+    <a href="esd.html" class="other-product-card">
+      <div class="other-product-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      </div>
+      <div class="other-product-name">ESD Bubble Pouches</div>
+      <div class="other-product-tag">Anti-Static</div>
+    </a>
+    <a href="silver.html" class="other-product-card">
+      <div class="other-product-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2M8 7V5a2 2 0 0 1 4 0"/><circle cx="12" cy="14" r="2"/></svg>
+      </div>
+      <div class="other-product-name">Silver Pouches</div>
+      <div class="other-product-tag">Barrier Pack</div>
+    </a>
+    <a href="kraft.html" class="other-product-card">
+      <div class="other-product-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+      </div>
+      <div class="other-product-name">Kraft Paper Tape</div>
+      <div class="other-product-tag">Eco-Friendly</div>
+    </a>
   </div>
 </section>
 
