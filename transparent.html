@@ -35,43 +35,164 @@ body{
 .cur-r{width:32px;height:32px;border:1.5px solid var(--blue);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,background .3s;opacity:.55}
 .cur-r.h{width:56px;height:56px;background:rgba(26,79,219,.06);opacity:1}
 
-/* NAV - Matches index.html */
+/* Glass Pill Navbar with Sliding Hover - Matches index.html */
 nav{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:18px 60px;
-  background:rgba(255,255,255,.92);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid rgba(0,0,0,.06);
-  transition:all .3s;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 120px);
+  max-width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 100px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
 }
-nav.scrolled{background:rgba(255,255,255,.98);box-shadow:0 4px 30px rgba(0,0,0,.08)}
+nav.scrolled{
+  top: 12px;
+  padding: 6px;
+  background: rgba(255,255,255,0.85);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.06);
+}
 .nav-logo{
-  display:flex;align-items:center;gap:8px;
-  font-family:'Inter',sans-serif;
-  font-size:22px;font-weight:800;letter-spacing:-1px;
-  color:var(--ink);text-decoration:none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Inter',sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 8px 16px;
+  z-index: 2;
 }
-.nav-logo span{color:var(--blue)}
-.nav-links{display:flex;gap:40px;list-style:none;margin:0;padding:0}
-.nav-links a{
-  font-size:13px;font-weight:600;color:var(--gray);
-  text-decoration:none;letter-spacing:.3px;
-  transition:color .2s;position:relative;
+.nav-logo span{
+  background: linear-gradient(135deg, var(--blue), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
-.nav-links a::after{
-  content:'';position:absolute;bottom:-6px;left:0;
-  width:0;height:2px;background:var(--blue);
-  transition:width .25s;
+.nav-links-wrapper{
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(240,240,240,0.5);
+  border-radius: 100px;
+  padding: 4px;
+  z-index: 1;
 }
-.nav-links a:hover{color:var(--ink)}
-.nav-links a:hover::after{width:100%}
+.nav-links{
+  display: flex;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.nav-links li{
+  position: relative;
+}
+.nav-links a, .nav-links span.nav-dropdown-toggle{
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 100px;
+  transition: color 0.3s cubic-bezier(0.4,0,0.2,1);
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.nav-hover-pill{
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  height: calc(100% - 8px);
+  background: white;
+  border-radius: 100px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  z-index: 1;
+  pointer-events: none;
+}
+.nav-links a:hover, .nav-links a.active, .nav-dropdown-toggle:hover{
+  color: var(--ink);
+}
+.nav-links a.active{
+  font-weight: 600;
+}
+.nav-dropdown{
+  position: relative;
+}
+.nav-dropdown-toggle{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.nav-dropdown-menu{
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 16px;
+  padding: 8px;
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+}
+.nav-dropdown:hover .nav-dropdown-menu{
+  opacity: 1;
+  visibility: visible;
+}
+.nav-dropdown-menu a{
+  display: block;
+  padding: 10px 16px;
+  font-size: 13px;
+  color: var(--ink);
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+.nav-dropdown-menu a:hover{
+  background: rgba(26,79,219,0.06);
+  color: var(--blue);
+}
 .nav-cta{
-  padding:12px 28px;background:var(--blue);color:#fff;
-  font-size:13px;font-weight:600;border:none;border-radius:100px;
-  cursor:none;letter-spacing:.3px;transition:all .25s;
+  padding: 10px 24px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 100px;
+  cursor: none;
+  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 2;
 }
-.nav-cta:hover{background:var(--blue-mid);transform:translateY(-2px);box-shadow:0 8px 24px rgba(26,79,219,.25)}
+.nav-cta:hover{
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  background: #000;
+}
 
 /* ============ HERO ============ */
 .hero{
@@ -669,273 +790,83 @@ nav.scrolled{background:rgba(255,255,255,.98);box-shadow:0 4px 30px rgba(0,0,0,.
   .stat-block{min-width:50%}
 }
 @media(max-width:768px){
-  /* Mobile cursor hidden */
   .cur-d, .cur-r { display: none; }
   body { cursor: auto; }
-  
-  /* Mobile navbar */
   nav {
     top: 12px;
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
     width: calc(100% - 32px);
-    padding: 10px 16px;
-    border-radius: 50px;
-    border-bottom: none;
+    padding: 8px 14px;
   }
   nav.scrolled {
     top: 8px;
-    padding: 8px 14px;
+    padding: 6px 12px;
   }
   .nav-logo { font-size: 16px; }
   .nav-links { display: none; }
   .nav-cta { padding: 8px 16px; font-size: 12px; }
-  
-  /* Hero mobile */
-  .hero {
-    grid-template-columns: 1fr;
-    padding-top: 70px;
-  }
-  .hero-image-zone {
-    min-height: 40vh;
-    order: 2;
-  }
-  .hero-photo-container {
-    width: 70%;
-  }
-  .bg-text-left {
-    font-size: 80px;
-    bottom: -10px;
-  }
-  .hero-content {
-    padding: 40px 24px 60px;
-    order: 1;
-  }
-  .product-title {
-    font-size: clamp(48px, 12vw, 72px);
-    letter-spacing: -1px;
-  }
-  .product-subtitle {
-    font-size: clamp(20px, 5vw, 28px);
-    margin-bottom: 24px;
-  }
-  .product-desc {
-    font-size: 15px;
-    margin-bottom: 32px;
-  }
-  .spec-row {
-    margin-bottom: 32px;
-  }
-  .spec-pill {
-    padding: 6px 12px;
-    font-size: 11px;
-  }
-  .cta-row {
-    flex-direction: column;
-    gap: 12px;
-  }
-  .btn-main, .btn-outline {
-    width: 100%;
-    justify-content: center;
-    padding: 14px 24px;
-    font-size: 13px;
-  }
-  .scroll-hint {
-    display: none;
-  }
-  
-  /* Stats mobile */
-  .stats-strip {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 40px 20px;
-    gap: 24px;
-  }
-  .stat-block {
-    gap: 12px;
-  }
-  .stat-bar-wrap {
-    width: 16px;
-    height: 80px;
-  }
-  .stat-num {
-    font-size: 36px;
-  }
-  .stat-unit {
-    font-size: 18px;
-  }
-  .stat-label {
-    font-size: 10px;
-  }
-  
-  /* Uses section mobile */
-  .uses {
-    padding: 60px 20px;
-  }
-  .uses::before {
-    font-size: 100px;
-    top: 20px;
-    right: -10px;
-  }
-  .section-header {
-    margin-bottom: 40px;
-  }
-  .section-label {
-    font-size: 10px;
-    letter-spacing: 2px;
-  }
-  .section-heading {
-    font-size: clamp(36px, 10vw, 48px);
-  }
-  .uses-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  .use-card {
-    padding: 28px 24px;
-    border-radius: 18px;
-  }
-  .use-num {
-    font-size: 48px;
-    top: 16px;
-    right: 20px;
-  }
-  .use-icon {
-    width: 44px;
-    height: 44px;
-  }
-  .use-title {
-    font-size: 18px;
-  }
-  .use-desc {
-    font-size: 13px;
-  }
-  
-  /* Dimensions mobile */
-  .dimensions {
-    padding: 60px 20px;
-  }
-  .dimensions::before {
-    width: 300px;
-    height: 300px;
-  }
-  .spec-cards {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    margin-top: 40px;
-  }
-  .spec-card {
-    padding: 24px;
-    border-radius: 16px;
-  }
-  .spec-card-icon {
-    width: 44px;
-    height: 44px;
-  }
-  .spec-card-title {
-    font-size: 11px;
-  }
-  .spec-chip {
-    font-size: 16px;
-    padding: 6px 12px;
-  }
-  .custom-note-wide {
-    flex-direction: column;
-    padding: 20px 24px;
-    text-align: center;
-  }
-  
-  /* Features mobile */
-  .features {
-    padding: 60px 20px;
-  }
-  .features::before {
-    font-size: 80px;
-    top: 20px;
-  }
-  .features-timeline {
-    padding: 10px 0;
-  }
-  .timeline-line {
-    left: 20px;
-  }
-  .timeline-dot {
-    left: 20px;
-    width: 36px;
-    height: 36px;
-    font-size: 14px;
-    box-shadow: 0 0 0 6px var(--off);
-  }
-  .timeline-item {
-    margin-bottom: 40px;
-  }
-  .timeline-item:nth-child(odd),
-  .timeline-item:nth-child(even) {
-    flex-direction: row;
-    text-align: left;
-  }
-  .timeline-item:nth-child(odd) .timeline-content,
-  .timeline-item:nth-child(even) .timeline-content {
-    margin-left: 60px;
-    margin-right: 0;
-  }
-  .timeline-content h4 {
-    font-size: 17px;
-  }
-  .timeline-content p {
-    font-size: 13px;
-  }
-  
-  /* Marquee mobile */
-  .app-item {
-    font-size: 12px;
-    padding: 0 20px;
-    gap: 12px;
-  }
-  
-  /* Reveal animations mobile */
-  .reveal {
-    transform: translateY(40px) scale(0.95);
-    filter: blur(4px);
-  }
-  .reveal.on {
-    transform: translateY(0) scale(1);
-    filter: blur(0);
-  }
-  .reveal-left {
-    transform: translateX(-40px);
-  }
-  .reveal-right {
-    transform: translateX(40px);
-  }
-  
-  /* Footer mobile */
-  .page-footer {
-    flex-direction: column;
-    gap: 16px;
-    text-align: center;
-    padding: 32px 20px;
-  }
-  .pf-brand {
-    font-size: 20px;
-  }
-  .pf-back {
-    font-size: 12px;
-  }
-  .pf-copy {
-    font-size: 11px;
-  }
-  
-  /* Mobile touch feedback */
-  .use-card:active, .spec-card:active, .btn-main:active, .btn-outline:active {
-    transform: scale(0.98);
-    transition: transform 0.1s;
-  }
+  .hero { grid-template-columns: 1fr; padding-top: 70px; }
+  .hero-image-zone { min-height: 40vh; order: 2; }
+  .hero-photo-container { width: 70%; }
+  .bg-text-left { font-size: 80px; bottom: -10px; }
+  .hero-content { padding: 40px 24px 60px; order: 1; }
+  .product-title { font-size: clamp(48px, 12vw, 72px); letter-spacing: -1px; }
+  .product-subtitle { font-size: clamp(20px, 5vw, 28px); margin-bottom: 24px; }
+  .product-desc { font-size: 15px; margin-bottom: 32px; }
+  .spec-row { margin-bottom: 32px; }
+  .spec-pill { padding: 6px 12px; font-size: 11px; }
+  .cta-row { flex-direction: column; gap: 12px; }
+  .btn-main, .btn-outline { width: 100%; justify-content: center; padding: 14px 24px; font-size: 13px; }
+  .scroll-hint { display: none; }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); padding: 40px 20px; gap: 24px; }
+  .stat-block { gap: 12px; }
+  .stat-bar-wrap { width: 16px; height: 80px; }
+  .stat-num { font-size: 36px; }
+  .stat-unit { font-size: 18px; }
+  .stat-label { font-size: 10px; }
+  .uses { padding: 60px 20px; }
+  .uses::before { font-size: 100px; top: 20px; right: -10px; }
+  .section-header { margin-bottom: 40px; }
+  .section-label { font-size: 10px; letter-spacing: 2px; }
+  .section-heading { font-size: clamp(36px, 10vw, 48px); }
+  .uses-grid { grid-template-columns: 1fr; gap: 16px; }
+  .use-card { padding: 28px 24px; border-radius: 18px; }
+  .use-num { font-size: 48px; top: 16px; right: 20px; }
+  .use-icon { width: 44px; height: 44px; }
+  .use-title { font-size: 18px; }
+  .use-desc { font-size: 13px; }
+  .dimensions { padding: 60px 20px; }
+  .dimensions::before { width: 300px; height: 300px; }
+  .spec-cards { grid-template-columns: 1fr; gap: 16px; margin-top: 40px; }
+  .spec-card { padding: 24px; border-radius: 16px; }
+  .spec-card-icon { width: 44px; height: 44px; }
+  .spec-card-title { font-size: 11px; }
+  .spec-chip { font-size: 16px; padding: 6px 12px; }
+  .custom-note-wide { flex-direction: column; padding: 20px 24px; text-align: center; }
+  .features { padding: 60px 20px; }
+  .features::before { font-size: 80px; top: 20px; }
+  .features-timeline { padding: 10px 0; }
+  .timeline-line { left: 20px; }
+  .timeline-dot { left: 20px; width: 36px; height: 36px; font-size: 14px; box-shadow: 0 0 0 6px var(--off); }
+  .timeline-item { margin-bottom: 40px; }
+  .timeline-item:nth-child(odd), .timeline-item:nth-child(even) { flex-direction: row; text-align: left; }
+  .timeline-item:nth-child(odd) .timeline-content, .timeline-item:nth-child(even) .timeline-content { margin-left: 60px; margin-right: 0; }
+  .timeline-content h4 { font-size: 17px; }
+  .timeline-content p { font-size: 13px; }
+  .app-item { font-size: 12px; padding: 0 20px; gap: 12px; }
+  .reveal { transform: translateY(40px) scale(0.95); filter: blur(4px); }
+  .reveal.on { transform: translateY(0) scale(1); filter: blur(0); }
+  .reveal-left { transform: translateX(-40px); }
+  .reveal-right { transform: translateX(40px); }
+  .page-footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 20px; }
+  .pf-brand { font-size: 20px; }
+  .pf-back { font-size: 12px; }
+  .pf-copy { font-size: 11px; }
+  .use-card:active, .spec-card:active, .btn-main:active, .btn-outline:active { transform: scale(0.98); transition: transform 0.1s; }
 }
 
-/* Other Products Section */
+/* Other Products Section - Black theme matching index.html */
 .other-products {
-  background: var(--white);
+  background: var(--off);
   padding: 100px 80px;
   border-top: 1px solid var(--border);
 }
@@ -944,10 +875,11 @@ nav.scrolled{background:rgba(255,255,255,.98);box-shadow:0 4px 30px rgba(0,0,0,.
   margin-bottom: 60px;
 }
 .other-products-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(40px, 5vw, 64px);
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 800;
   color: var(--ink);
-  letter-spacing: 2px;
+  letter-spacing: -2px;
   margin-bottom: 12px;
 }
 .other-products-subtitle {
@@ -962,45 +894,68 @@ nav.scrolled{background:rgba(255,255,255,.98);box-shadow:0 4px 30px rgba(0,0,0,.
   margin: 0 auto;
 }
 .other-product-card {
-  background: var(--off);
+  background: var(--white);
+  border-radius: 20px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
   border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 24px;
-  text-align: center;
-  transition: all 0.3s ease;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
   cursor: pointer;
   text-decoration: none;
   color: inherit;
-  display: block;
 }
 .other-product-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-  border-color: var(--primary);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+  border-color: rgba(13,13,13,0.2);
 }
 .other-product-icon {
-  width: 48px;
-  height: 48px;
-  background: var(--primary);
-  border-radius: 12px;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: rgba(13,13,13,0.08);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 16px;
-  color: #fff;
+  margin-bottom: 20px;
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.other-product-icon svg {
+  color: var(--ink);
+}
+.other-product-card:hover .other-product-icon {
+  transform: scale(1.1);
 }
 .other-product-name {
-  font-family: 'Barlow', sans-serif;
-  font-size: 15px;
-  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  margin-bottom: 8px;
   color: var(--ink);
-  margin-bottom: 4px;
+}
+.other-product-desc {
+  font-size: 13px;
+  color: var(--gray);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .other-product-tag {
+  display: inline-block;
+  margin-top: 16px;
   font-size: 11px;
-  color: var(--gray);
-  text-transform: uppercase;
+  font-weight: 600;
   letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: rgba(13,13,13,0.08);
+  padding: 4px 10px;
+  border-radius: 100px;
 }
 
 @media(max-width:1100px){
@@ -1018,18 +973,25 @@ nav.scrolled{background:rgba(255,255,255,.98);box-shadow:0 4px 30px rgba(0,0,0,.
     gap: 12px;
   }
   .other-product-card {
-    padding: 16px;
-    border-radius: 12px;
+    padding: 20px;
+    border-radius: 14px;
+  }
+  .other-product-name {
+    font-size: 15px;
+  }
+  .other-product-desc {
+    font-size: 12px;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
   }
   .other-product-icon {
     width: 40px;
     height: 40px;
-  }
-  .other-product-name {
-    font-size: 13px;
+    border-radius: 12px;
   }
   .other-product-tag {
     font-size: 10px;
+    padding: 3px 8px;
   }
 }
 
@@ -1062,12 +1024,24 @@ nav.scrolled{background:rgba(255,255,255,.98);box-shadow:0 4px 30px rgba(0,0,0,.
 <!-- NAV -->
 <nav id="navbar">
   <a class="nav-logo" href="index.html"><span>NKB</span> Packaging</a>
-  <ul class="nav-links">
-    <li><a href="index.html#about">About</a></li>
-    <li><a href="index.html#products">Products</a></li>
-    <li><a href="index.html#clients">Clients</a></li>
-    <li><a href="index.html#contact">Contact</a></li>
-  </ul>
+  <div class="nav-links-wrapper">
+    <div class="nav-hover-pill" id="navHoverPill"></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li class="nav-dropdown">
+        <span class="nav-dropdown-toggle">Products <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        <div class="nav-dropdown-menu">
+          <a href="bopp.html">BOPP Tape</a>
+          <a href="transparent.html">Transparent BOPP</a>
+          <a href="color.html">Color BOPP</a>
+          <a href="masking.html">Masking Tapes</a>
+          <a href="stretch.html">Stretch Films</a>
+        </div>
+      </li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
   <button class="nav-cta" onclick="document.getElementById('contact-section').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
 </nav>
 
@@ -1077,7 +1051,6 @@ nav.scrolled{background:rgba(255,255,255,.98);box-shadow:0 4px 30px rgba(0,0,0,.
   <!-- LEFT: IMAGE ZONE -->
   <div class="hero-image-zone" style="background:var(--white);">
     <div class="image-noise"></div>
-    <div class="bg-text-left">CLEAR</div>
 
     <div class="hero-photo-container reveal-burst">
       <img src="trans.png" alt="Transparent BOPP Tape" onerror="this.style.display='none'; this.parentElement.querySelector('.photo-fallback').style.display='flex'"/>
@@ -1433,80 +1406,91 @@ nav.scrolled{background:rgba(255,255,255,.98);box-shadow:0 4px 30px rgba(0,0,0,.
   <div class="other-products-grid">
     <a href="bopp.html" class="other-product-card">
       <div class="other-product-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
       </div>
       <div class="other-product-name">Brown BOPP Tape</div>
-      <div class="other-product-tag">Industrial</div>
+      <div class="other-product-desc">Industrial-grade carton sealing tape. Superior adhesion, silent unwind, and consistent tensile strength.</div>
+      <span class="other-product-tag">Industrial</span>
     </a>
     <a href="color.html" class="other-product-card">
       <div class="other-product-icon">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
       </div>
       <div class="other-product-name">Color BOPP</div>
-      <div class="other-product-tag">Colored Tape</div>
+      <div class="other-product-desc">Vibrant colored tapes for branding, coding, and decorative applications. Multiple colors available.</div>
+      <span class="other-product-tag">Colored</span>
     </a>
     <a href="masking.html" class="other-product-card">
       <div class="other-product-icon">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
       </div>
       <div class="other-product-name">Masking Tapes</div>
-      <div class="other-product-tag">Industrial</div>
+      <div class="other-product-desc">Clean removal, precise masking. Ideal for painting, surface protection, and automotive finishing.</div>
+      <span class="other-product-tag">Industrial</span>
     </a>
     <a href="stretch.html" class="other-product-card">
       <div class="other-product-icon">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
       </div>
       <div class="other-product-name">Stretch Films</div>
-      <div class="other-product-tag">Pallet Wrap</div>
+      <div class="other-product-desc">Multi-layer LLDPE stretch wraps for pallet stability. Ultra-clear, high cling, and tear-resistant.</div>
+      <span class="other-product-tag">Pallet Wrap</span>
     </a>
     <a href="bio.html" class="other-product-card">
       <div class="other-product-icon">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       </div>
       <div class="other-product-name">Biodegradable Bags</div>
-      <div class="other-product-tag">Eco-Certified</div>
+      <div class="other-product-desc">Eco-certified, fully compostable packaging. Meet sustainability mandates without compromising on strength.</div>
+      <span class="other-product-tag">Eco-Certified</span>
     </a>
     <a href="epe.html" class="other-product-card">
       <div class="other-product-icon">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       </div>
       <div class="other-product-name">EPE Foam Rolls</div>
-      <div class="other-product-tag">Cushioning</div>
+      <div class="other-product-desc">Expanded polyethylene cushioning for fragile goods. Lightweight, moisture-resistant, and shock-absorbing.</div>
+      <span class="other-product-tag">Cushioning</span>
     </a>
     <a href="bubble.html" class="other-product-card">
       <div class="other-product-icon">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
       </div>
       <div class="other-product-name">Bubble Pouches</div>
-      <div class="other-product-tag">Protection</div>
+      <div class="other-product-desc">Self-sealing protective pouches with bubble cushioning. Perfect for electronics and fragile items.</div>
+      <span class="other-product-tag">Protection</span>
     </a>
     <a href="roll.html" class="other-product-card">
       <div class="other-product-icon">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 6v12M18 6v12"/></svg>
       </div>
       <div class="other-product-name">Bubble Rolls</div>
-      <div class="other-product-tag">Versatile</div>
+      <div class="other-product-desc">Flexible cushioning wrap in roll format. Cut-to-length convenience for wrapping items of any shape.</div>
+      <span class="other-product-tag">Versatile</span>
     </a>
     <a href="esd.html" class="other-product-card">
       <div class="other-product-icon">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
       </div>
       <div class="other-product-name">ESD Bubble Pouches</div>
-      <div class="other-product-tag">Anti-Static</div>
+      <div class="other-product-desc">Anti-static protection for electronics and sensitive components. Pink/metallic layers with ESD compliance.</div>
+      <span class="other-product-tag">Anti-Static</span>
     </a>
     <a href="silver.html" class="other-product-card">
       <div class="other-product-icon">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2M8 7V5a2 2 0 0 1 4 0"/><circle cx="12" cy="14" r="2"/></svg>
       </div>
       <div class="other-product-name">Silver Pouches</div>
-      <div class="other-product-tag">Barrier Pack</div>
+      <div class="other-product-desc">Metalized barrier pouches offering superior moisture, oxygen, and light protection for sensitive materials.</div>
+      <span class="other-product-tag">Barrier Pack</span>
     </a>
     <a href="kraft.html" class="other-product-card">
       <div class="other-product-icon">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
       </div>
       <div class="other-product-name">Kraft Paper Tape</div>
-      <div class="other-product-tag">Eco-Friendly</div>
+      <div class="other-product-desc">100% recyclable natural paper tape with strong adhesion. Eco-friendly solution for sustainable packaging.</div>
+      <span class="other-product-tag">Eco-Friendly</span>
     </a>
   </div>
 </section>
@@ -1546,6 +1530,47 @@ document.querySelectorAll('.stat-block').forEach(el=>statObs.observe(el));
 const navbar=document.getElementById('navbar');
 window.addEventListener('scroll',()=>{
   navbar.classList.toggle('scrolled',window.scrollY>60);
+});
+
+// Sliding hover pill effect
+const navLinks = document.querySelectorAll('.nav-links > li > a, .nav-dropdown-toggle');
+const navHoverPill = document.getElementById('navHoverPill');
+const navLinksWrapper = document.querySelector('.nav-links-wrapper');
+
+function updatePillPosition(element) {
+  if (!element || !navLinksWrapper) return;
+  const rect = element.getBoundingClientRect();
+  const wrapperRect = navLinksWrapper.getBoundingClientRect();
+  const left = rect.left - wrapperRect.left;
+  const width = rect.width;
+  navHoverPill.style.width = width + 'px';
+  navHoverPill.style.transform = `translateX(${left}px)`;
+}
+
+// Position pill on active link initially
+const activeLink = document.querySelector('.nav-links a.active');
+if (activeLink && navHoverPill) {
+  setTimeout(() => updatePillPosition(activeLink), 100);
+}
+
+navLinks.forEach(link => {
+  link.addEventListener('mouseenter', () => {
+    if (navHoverPill) updatePillPosition(link);
+  });
+});
+
+if (navLinksWrapper) {
+  navLinksWrapper.addEventListener('mouseleave', () => {
+    const active = document.querySelector('.nav-links a.active');
+    if (active && navHoverPill) {
+      updatePillPosition(active);
+    }
+  });
+}
+
+window.addEventListener('resize', () => {
+  const active = document.querySelector('.nav-links a.active');
+  if (active && navHoverPill) updatePillPosition(active);
 });
 
 // Counter animation for stat numbers
