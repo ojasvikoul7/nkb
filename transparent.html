@@ -790,38 +790,50 @@ nav.scrolled{
   .stat-block{min-width:50%}
 }
 @media(max-width:768px){
-  .cur-d, .cur-r { display: none; }
-  body { cursor: auto; }
+  .cursor-dot, .cursor-ring { display: none; }
   nav {
     top: 12px;
-    width: calc(100% - 32px);
-    padding: 8px 14px;
+    width: calc(100% - 24px);
+    max-width: 100%;
+    padding: 6px 8px;
+    border-radius: 50px;
+    gap: 4px;
   }
   nav.scrolled {
     top: 8px;
-    padding: 6px 12px;
+    padding: 4px 6px;
   }
-  .nav-logo { font-size: 16px; }
+  .nav-logo { 
+    font-size: 14px; 
+    padding: 6px 10px;
+    white-space: nowrap;
+  }
+  .nav-links-wrapper {
+    flex: 1;
+    justify-content: center;
+    background: rgba(240,240,240,0.4);
+    padding: 2px;
+  }
+  .nav-hover-pill { display: none; }
   .nav-links { 
     display: flex;
     align-items: center;
-    gap: 2px;
+    gap: 0;
   }
   .nav-links a {
     padding: 6px 10px;
-    font-size: 11px;
+    font-size: 12px;
     white-space: nowrap;
   }
   .nav-dropdown-toggle {
     padding: 6px 10px;
-    font-size: 11px;
-    white-space: nowrap;
+    font-size: 12px;
   }
   .nav-dropdown-menu {
     top: calc(100% + 4px);
     left: 50%;
     transform: translateX(-50%) translateY(-8px);
-    min-width: 140px;
+    min-width: 160px;
     padding: 6px;
   }
   .nav-dropdown:hover .nav-dropdown-menu {
