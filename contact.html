@@ -135,7 +135,34 @@
         padding: 8px 14px;
       }
       .nav-logo { font-size: 16px; }
-      .nav-links { display: none; }
+      .nav-links { 
+        display: flex;
+        align-items: center;
+        gap: 0;
+      }
+      .nav-links a {
+        padding: 6px 10px;
+        font-size: 12px;
+        white-space: nowrap;
+      }
+      .nav-dropdown-toggle {
+        padding: 6px 10px;
+        font-size: 12px;
+      }
+      .nav-dropdown-menu {
+        top: calc(100% + 4px);
+        left: 50%;
+        transform: translateX(-50%) translateY(-8px);
+        min-width: 160px;
+        padding: 6px;
+      }
+      .nav-dropdown:hover .nav-dropdown-menu {
+        transform: translateX(-50%) translateY(0);
+      }
+      .nav-dropdown-menu a {
+        padding: 8px 10px;
+        font-size: 12px;
+      }
       .nav-cta { padding: 8px 16px; font-size: 12px; }
       
       /* Page hero mobile */
