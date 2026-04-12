@@ -885,7 +885,32 @@ nav.scrolled{
   .stat-item{min-width:50%}
 }
 @media(max-width:768px){
-  .cur-d, .cur-r { display: none; }
+  .cur-d,  .cur-r { display: none; }
+  .nav-links { 
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+  .nav-links a {
+    padding: 6px 10px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  .nav-dropdown-toggle {
+    padding: 6px 10px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  .nav-dropdown-menu {
+    top: calc(100% + 4px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    min-width: 140px;
+    padding: 6px;
+  }
+  .nav-dropdown:hover .nav-dropdown-menu {
+    transform: translateX(-50%) translateY(0);
+  }
   body { cursor: auto; }
   nav {
     top: 12px;
