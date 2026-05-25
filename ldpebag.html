@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Kraft Paper Tape — NKB Packaging Solutions</title>
+<title>LDPE Polythene Bags — NKB Packaging Solutions</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet"/>
@@ -11,15 +11,15 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
   --ink:#0a0806;
-  --primary:#8B5A2B;
-  --primary-mid:#A67B5B;
-  --primary-light:#C4A77D;
-  --primary-pale:#F5F0E8;
-  --accent:#D4A574;
+  --primary:#0f172a;
+  --primary-mid:#1e293b;
+  --primary-light:#334155;
+  --primary-pale:#e2e8f0;
+  --accent:#3b82f6;
   --white:#ffffff;
-  --off:#FAF8F5;
-  --gray:#6B5B4F;
-  --border:#E8E0D5;
+  --off:#f8fafc;
+  --gray:#64748b;
+  --border:#e2e8f0;
 }
 html{scroll-behavior:smooth}
 body{
@@ -31,9 +31,9 @@ body{
 }
 
 /* CURSOR */
-.cur-d{width:7px;height:7px;background:var(--primary);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
-.cur-r{width:32px;height:32px;border:1.5px solid var(--primary);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,background .3s;opacity:.55}
-.cur-r.h{width:56px;height:56px;background:rgba(139,90,43,.06);opacity:1}
+.cur-d{width:7px;height:7px;background:var(--accent);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
+.cur-r{width:32px;height:32px;border:1.5px solid var(--accent);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,background .3s;opacity:.55}
+.cur-r.h{width:56px;height:56px;background:rgba(59,130,246,.06);opacity:1}
 
 /* Glass Pill Navbar - matched to home page */
 nav {
@@ -266,9 +266,8 @@ nav.scrolled {
   }
 }
 
-/* ============ HERO ============ */
+/* HERO SECTION */
 .hero{
-  min-height:100vh;
   display:grid;
   grid-template-columns:1fr 1fr;
   position:relative;
@@ -303,14 +302,14 @@ nav.scrolled {
 }
 .photo-placeholder-icon{
   width:64px;height:64px;
-  background:rgba(139,90,43,.1);
+  background:rgba(59,130,246,.1);
   border-radius:16px;
   display:flex;align-items:center;justify-content:center;
-  color:var(--primary);
+  color:var(--accent);
 }
 .photo-placeholder-text{
   font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;
-  color:var(--primary);
+  color:var(--accent);
   text-align:center;
 }
 
@@ -319,7 +318,7 @@ nav.scrolled {
   position:absolute;bottom:-20px;left:-10px;
   font-family:'Bebas Neue',sans-serif;
   font-size:180px;line-height:1;
-  color:rgba(139,90,43,.05);
+  color:rgba(15,23,42,.05);
   pointer-events:none;z-index:0;
   white-space:nowrap;
 }
@@ -335,7 +334,7 @@ nav.scrolled {
   content:'';
   position:absolute;top:-120px;right:-120px;
   width:400px;height:400px;
-  background:radial-gradient(circle,rgba(196,167,125,.15),transparent 70%);
+  background:radial-gradient(circle,rgba(59,130,246,.15),transparent 70%);
   pointer-events:none;
 }
 
@@ -344,10 +343,10 @@ nav.scrolled {
   margin-bottom:28px;
   animation:fadeUp .7s cubic-bezier(.4,0,.2,1) .1s both;
 }
-.eyebrow-line{width:36px;height:3px;background:var(--primary);border-radius:2px}
+.eyebrow-line{width:36px;height:3px;background:var(--accent);border-radius:2px}
 .eyebrow-text{
   font-size:12px;font-weight:800;letter-spacing:3px;text-transform:uppercase;
-  color:var(--primary);
+  color:var(--accent);
 }
 
 .product-title{
@@ -367,7 +366,7 @@ nav.scrolled {
   font-weight:900;
   text-transform:uppercase;
   letter-spacing:2px;
-  color:var(--primary-light);
+  color:var(--accent);
   margin-bottom:32px;
   animation:fadeUp .8s cubic-bezier(.4,0,.2,1) .3s both;
 }
@@ -391,13 +390,13 @@ nav.scrolled {
   display:flex;align-items:center;gap:7px;
   padding:8px 16px;
   background:var(--primary-pale);
-  border:1px solid rgba(139,90,43,.15);
+  border:1px solid rgba(59,130,246,.15);
   border-radius:100px;
   font-size:12px;font-weight:700;
   color:var(--primary);
   letter-spacing:.3px;
 }
-.spec-pill svg{color:var(--primary-mid)}
+.spec-pill svg{color:var(--accent)}
 
 .cta-row{
   display:flex;gap:14px;
@@ -413,7 +412,7 @@ nav.scrolled {
   transition:all .25s;
   display:flex;align-items:center;gap:8px;
 }
-.btn-main:hover{background:var(--primary-mid);transform:translateY(-2px);box-shadow:0 12px 36px rgba(139,90,43,.35)}
+.btn-main:hover{background:var(--primary-mid);transform:translateY(-2px);box-shadow:0 12px 36px rgba(15,23,42,.35)}
 .btn-outline{
   padding:15px 32px;
   background:transparent;color:var(--ink);
@@ -430,12 +429,12 @@ nav.scrolled {
   position:absolute;bottom:36px;right:64px;
   display:flex;align-items:center;gap:10px;
   font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  color:rgba(107,91,79,.5);
+  color:rgba(120,113,108,.5);
   animation:fadeUp 1s .9s both;
 }
 .scroll-hint-line{
   width:48px;height:1px;
-  background:linear-gradient(to right,var(--primary),transparent);
+  background:linear-gradient(to right,var(--accent),transparent);
 }
 
 @keyframes fadeUp{
@@ -443,7 +442,7 @@ nav.scrolled {
   to{opacity:1;transform:translateY(0)}
 }
 
-/* ============ STATS - Animated bar chart style ============ */
+/* ============ STATS ============ */
 .stats-strip{
   background:var(--primary);
   padding:60px 80px;
@@ -470,7 +469,7 @@ nav.scrolled {
   bottom:0;
   left:0;
   right:0;
-  background:linear-gradient(to top,var(--accent),var(--primary-light));
+  background:linear-gradient(to top,var(--accent),#60a5fa);
   border-radius:12px;
   height:0;
   transition:height 1.2s cubic-bezier(.4,0,.2,1);
@@ -496,6 +495,36 @@ nav.scrolled {
   .stats-strip{grid-template-columns:1fr}
 }
 
+/* ============ APPLICATIONS MARQUEE ============ */
+.app-marquee{
+  background:var(--primary);
+  padding:40px 0;
+  overflow:hidden;
+  border-top:1px solid rgba(255,255,255,.1);
+}
+.app-track{
+  display:flex;
+  gap:40px;
+  animation:scroll 30s linear infinite;
+}
+.app-item{
+  display:flex;
+  align-items:center;
+  gap:40px;
+  white-space:nowrap;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:18px;font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  color:rgba(255,255,255,.4);
+  flex-shrink:0;
+}
+.app-sep{width:4px;height:4px;background:rgba(255,255,255,.3);border-radius:50%}
+@keyframes scroll{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
+
 /* ============ USES SECTION ============ */
 .uses{
   padding:120px 80px;
@@ -507,7 +536,7 @@ nav.scrolled {
   position:absolute;right:-20px;top:40px;
   font-family:'Bebas Neue',sans-serif;
   font-size:220px;line-height:1;
-  color:rgba(139,90,43,.05);
+  color:rgba(15,23,42,.05);
   pointer-events:none;
 }
 .section-header{margin-bottom:72px}
@@ -516,14 +545,14 @@ nav.scrolled {
   font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;
   color:var(--primary);margin-bottom:14px;
 }
-.section-label-line{width:28px;height:2.5px;background:var(--primary);border-radius:2px}
+.section-label-line{width:28px;height:2.5px;background:var(--accent);border-radius:2px}
 .section-heading{
   font-family:'Bebas Neue',sans-serif;
   font-size:clamp(48px,5vw,80px);
   line-height:.95;letter-spacing:-1px;
   color:var(--ink);
 }
-.section-heading span{color:var(--primary)}
+.section-heading span{color:var(--accent)}
 
 .uses-grid{
   display:grid;
@@ -541,8 +570,8 @@ nav.scrolled {
 }
 .use-card:hover{
   transform:translateY(-10px) scale(1.01);
-  box-shadow:0 28px 70px rgba(139,90,43,.15);
-  border-color:rgba(139,90,43,.25);
+  box-shadow:0 28px 70px rgba(15,23,42,.15);
+  border-color:rgba(59,130,246,.25);
 }
 .use-card::before{
   content:'';
@@ -556,7 +585,7 @@ nav.scrolled {
   position:absolute;top:24px;right:28px;
   font-family:'Bebas Neue',sans-serif;
   font-size:64px;line-height:1;
-  color:rgba(139,90,43,.07);
+  color:rgba(15,23,42,.07);
   pointer-events:none;
 }
 .use-icon{
@@ -566,7 +595,7 @@ nav.scrolled {
   display:flex;align-items:center;justify-content:center;
   margin-bottom:20px;
   transition:background .3s,transform .4s cubic-bezier(.4,0,.2,1);
-  color:var(--primary);
+  color:var(--accent);
 }
 .use-card:hover .use-icon{background:var(--primary);color:#fff;transform:rotate(-6deg) scale(1.1)}
 .use-title{
@@ -587,7 +616,7 @@ nav.scrolled {
   content:'';
   position:absolute;
   width:600px;height:600px;
-  background:radial-gradient(circle,rgba(196,167,125,.12),transparent 70%);
+  background:radial-gradient(circle,rgba(59,130,246,.12),transparent 70%);
   top:-100px;right:-100px;pointer-events:none;
 }
 .dimensions .section-label{color:var(--accent)}
@@ -612,12 +641,12 @@ nav.scrolled {
 }
 .spec-card:hover{
   background:rgba(255,255,255,.06);
-  border-color:rgba(212,165,116,.3);
+  border-color:rgba(59,130,246,.3);
   transform:translateY(-8px);
 }
 .spec-card-icon{
   width:56px;height:56px;
-  background:rgba(212,165,116,.15);
+  background:rgba(59,130,246,.15);
   border-radius:16px;
   display:flex;align-items:center;justify-content:center;
   color:var(--accent);
@@ -640,15 +669,15 @@ nav.scrolled {
 }
 .spec-chip.highlight{
   background:var(--accent);
-  color:var(--ink);
+  color:var(--primary);
 }
 .spec-card-note{
   font-size:12px;color:rgba(255,255,255,.4);
 }
 .custom-note-wide{
   margin-top:40px;
-  background:rgba(212,165,116,.1);
-  border:1px solid rgba(212,165,116,.2);
+  background:rgba(59,130,246,.1);
+  border:1px solid rgba(59,130,246,.2);
   border-radius:16px;
   padding:24px 32px;
   display:flex;align-items:center;gap:16px;
@@ -665,433 +694,301 @@ nav.scrolled {
   .dimensions{padding:80px 24px}
 }
 
-/* ============ FEATURES - Timeline layout ============ */
+/* ============ FEATURES ============ */
 .features{
   padding:120px 80px;
   background:var(--off);
   position:relative;overflow:hidden;
 }
 .features::before{
-  content:'WHY';
-  position:absolute;right:20px;top:60px;
-  font-family:'Bebas Neue',sans-serif;
-  font-size:200px;line-height:1;
-  color:rgba(139,90,43,.04);
-  pointer-events:none;
+  content:'';
+  position:absolute;
+  width:500px;height:500px;
+  background:radial-gradient(circle,rgba(59,130,246,.08),transparent 70%);
+  bottom:-100px;left:-100px;pointer-events:none;
 }
 .features-timeline{
-  max-width:800px;
-  margin:0 auto;
   position:relative;
-  padding:20px 0;
+  max-width:700px;
+  margin:0 auto;
 }
 .timeline-line{
   position:absolute;
   left:50%;
   top:0;
   bottom:0;
-  width:2px;
-  background:linear-gradient(to bottom,var(--primary),var(--primary-light),var(--primary));
+  width:1px;
+  background:linear-gradient(to bottom,var(--accent),transparent);
   transform:translateX(-50%);
 }
 .timeline-item{
-  display:flex;
-  align-items:center;
-  margin-bottom:60px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  margin-bottom:80px;
   position:relative;
 }
-.timeline-item:nth-child(odd){
-  flex-direction:row;
-  text-align:right;
-}
-.timeline-item:nth-child(odd) .timeline-content{
-  margin-right:60px;
-  margin-left:0;
-}
-.timeline-item:nth-child(even){
-  flex-direction:row-reverse;
-  text-align:left;
-}
-.timeline-item:nth-child(even) .timeline-content{
-  margin-left:60px;
-  margin-right:0;
-}
+.timeline-item:nth-child(even) .timeline-dot{order:-1}
+.timeline-item:nth-child(even){direction:rtl}
+.timeline-item:nth-child(even) .timeline-content{direction:ltr}
 .timeline-dot{
-  width:48px;height:48px;
+  position:relative;
+  width:56px;height:56px;
   background:var(--primary);
   border-radius:50%;
   display:flex;align-items:center;justify-content:center;
-  color:#fff;
   font-family:'Bebas Neue',sans-serif;
-  font-size:18px;
+  font-size:20px;font-weight:700;
+  color:var(--accent);
+  align-self:center;
   flex-shrink:0;
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
-  z-index:2;
-  box-shadow:0 0 0 8px var(--off);
-}
-.timeline-content{
-  flex:1;
-  max-width:300px;
+  box-shadow:0 0 0 8px var(--off),0 0 0 9px var(--border);
 }
 .timeline-content h4{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:20px;font-weight:800;
-  text-transform:uppercase;letter-spacing:.5px;
-  color:var(--ink);margin-bottom:8px;
+  font-size:22px;font-weight:700;color:var(--ink);margin-bottom:12px;letter-spacing:.3px;
 }
 .timeline-content p{
-  font-size:14px;color:var(--gray);line-height:1.6;
+  font-size:14px;color:var(--gray);line-height:1.7;
 }
-@media(max-width:700px){
-  .features{padding:80px 24px}
-  .timeline-line{left:24px}
-  .timeline-dot{left:24px}
-  .timeline-item:nth-child(odd),
-  .timeline-item:nth-child(even){flex-direction:row;text-align:left}
-  .timeline-item:nth-child(odd) .timeline-content,
-  .timeline-item:nth-child(even) .timeline-content{margin-left:80px;margin-right:0}
+@media(max-width:900px){
+  .timeline-line{display:none}
+  .features-timeline{max-width:none}
+  .timeline-item{grid-template-columns:1fr;gap:20px;direction:ltr}
+  .timeline-item:nth-child(even){direction:ltr}
+  .timeline-item:nth-child(even) .timeline-dot{order:0}
 }
 
-/* ============ APPLICATIONS MARQUEE ============ */
-.app-marquee{
+/* ============ CONTACT CTA ============ */
+.contact-cta{
+  background:var(--primary);
+  padding:100px 80px;
+  position:relative;
+  overflow:hidden;
+}
+.contact-cta::before{
+  content:'';
+  position:absolute;top:-80px;right:-80px;
+  width:400px;height:400px;
+  background:radial-gradient(circle,rgba(255,255,255,.08),transparent 70%);
+  pointer-events:none;
+}
+.contact-cta::after{
+  content:'';
+  position:absolute;bottom:-60px;left:20%;
+  width:300px;height:300px;
+  background:radial-gradient(circle,rgba(0,0,0,.15),transparent 70%);
+  pointer-events:none;
+}
+.cta-content{max-width:700px;position:relative;z-index:1}
+.cta-eyebrow{
+  font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;
+  color:rgba(255,255,255,.6);margin-bottom:16px;
+}
+.cta-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(56px,7vw,96px);
+  line-height:.9;
+  color:#fff;letter-spacing:-1px;
+  margin-bottom:24px;
+}
+.cta-title span{color:var(--accent)}
+.cta-desc{
+  font-size:16px;color:rgba(255,255,255,.65);
+  line-height:1.75;max-width:480px;margin-bottom:48px;
+}
+.cta-buttons{display:flex;gap:14px;flex-wrap:wrap}
+.cta-btn-main{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:16px 36px;background:#fff;
+  color:var(--primary);font-family:'Barlow',sans-serif;
+  font-size:14px;font-weight:700;
+  border-radius:100px;text-decoration:none;
+  transition:all .25s;letter-spacing:.3px;cursor:none;
+  border:none;
+}
+.cta-btn-main:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(255,255,255,.25)}
+.cta-btn-outline{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:16px 36px;background:transparent;
+  color:rgba(255,255,255,.8);font-family:'Barlow',sans-serif;
+  font-size:14px;font-weight:700;border:1.5px solid rgba(255,255,255,.3);
+  border-radius:100px;text-decoration:none;
+  transition:all .25s;cursor:none;
+}
+.cta-btn-outline:hover{border-color:rgba(255,255,255,.6);color:#fff}
+
+/* ============ OTHER PRODUCTS ============ */
+.other-products{
+  background:var(--white);
+  padding:120px 80px;
+}
+.other-products-header{
+  margin-bottom:72px;
+  text-align:center;
+}
+.other-products-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(48px,5vw,64px);
+  line-height:.95;letter-spacing:-1px;
+  color:var(--ink);margin-bottom:16px;
+}
+.other-products-subtitle{
+  font-size:16px;color:var(--gray);line-height:1.6;
+}
+.other-products-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+}
+.other-product-card{
+  background:var(--off);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:32px 24px;
+  text-decoration:none;
+  color:inherit;
+  position:relative;
+  overflow:hidden;
+  transition:all .4s cubic-bezier(.4,0,.2,1);
+  display:flex;flex-direction:column;
+}
+.other-product-card:hover{
+  background:#fff;
+  border-color:var(--accent);
+  transform:translateY(-8px);
+  box-shadow:0 20px 50px rgba(15,23,42,.1);
+}
+.other-product-icon{
+  width:48px;height:48px;
   background:var(--primary-pale);
-  padding:20px 0;overflow:hidden;
-  border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--accent);
+  margin-bottom:20px;
+  transition:all .3s;
 }
-.app-track{
-  display:flex;width:max-content;
-  animation:appScroll 22s linear infinite;
+.other-product-card:hover .other-product-icon{
+  background:var(--primary);color:#fff;
 }
-.app-item{
-  display:flex;align-items:center;gap:20px;
-  padding:0 36px;
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:15px;font-weight:900;text-transform:uppercase;letter-spacing:2px;
-  color:var(--primary);white-space:nowrap;
+.other-product-name{
+  font-size:16px;font-weight:700;
+  color:var(--ink);margin-bottom:10px;letter-spacing:.2px;
 }
-.app-sep{width:6px;height:6px;background:var(--primary-light);border-radius:50%;flex-shrink:0}
-@keyframes appScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-/* ============ REVEAL - Strong visible animations ============ */
-.reveal{
-  opacity:0;
-  transform:translateY(60px) scale(0.95);
-  transition:opacity .9s cubic-bezier(.4,0,.2,1),transform .9s cubic-bezier(.4,0,.2,1),filter .9s;
-  filter:blur(8px);
+.other-product-desc{
+  font-size:13px;color:var(--gray);
+  line-height:1.6;margin-bottom:16px;flex-grow:1;
 }
-.reveal.on{
-  opacity:1;
-  transform:translateY(0) scale(1);
-  filter:blur(0);
+.other-product-tag{
+  display:inline-block;
+  font-size:11px;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;
+  background:var(--primary-pale);color:var(--primary);
+  padding:6px 12px;border-radius:6px;
+  width:fit-content;
 }
-
-/* Slide from left */
-.reveal-left{
-  opacity:0;
-  transform:translateX(-80px);
-  transition:opacity .8s cubic-bezier(.4,0,.2,1),transform .8s cubic-bezier(.4,0,.2,1);
+@media(max-width:1200px){
+  .other-products-grid{grid-template-columns:repeat(3,1fr)}
 }
-.reveal-left.on{
-  opacity:1;
-  transform:translateX(0);
+@media(max-width:900px){
+  .other-products-grid{grid-template-columns:repeat(2,1fr)}
 }
-
-/* Slide from right */
-.reveal-right{
-  opacity:0;
-  transform:translateX(80px);
-  transition:opacity .8s cubic-bezier(.4,0,.2,1),transform .8s cubic-bezier(.4,0,.2,1);
+@media(max-width:600px){
+  .other-products-grid{grid-template-columns:1fr}
 }
-.reveal-right.on{
-  opacity:1;
-  transform:translateX(0);
-}
-
-/* Scale up burst */
-.reveal-burst{
-  opacity:0;
-  transform:scale(0.7);
-  transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.34,1.56,.64,1);
-}
-.reveal-burst.on{
-  opacity:1;
-  transform:scale(1);
-}
-
-/* Flip in */
-.reveal-flip{
-  opacity:0;
-  transform:perspective(1000px) rotateX(-30deg) translateY(40px);
-  transition:opacity .8s cubic-bezier(.4,0,.2,1),transform .8s cubic-bezier(.4,0,.2,1);
-}
-.reveal-flip.on{
-  opacity:1;
-  transform:perspective(1000px) rotateX(0) translateY(0);
-}
-
-.rd1{transition-delay:.1s}.rd2{transition-delay:.2s}.rd3{transition-delay:.3s}.rd4{transition-delay:.4s}
-.rd5{transition-delay:.5s}.rd6{transition-delay:.6s}.rd7{transition-delay:.7s}
 
 /* ============ FOOTER ============ */
 .page-footer{
-  background:var(--ink);
-  padding:48px 80px;
+  background:var(--primary);
+  color:#fff;
+  padding:40px 80px;
   display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid rgba(255,255,255,.1);
 }
-.pf-brand{font-family:'Bebas Neue',sans-serif;font-size:24px;color:#fff;letter-spacing:1px}
+.pf-brand{
+  font-family:'Inter',sans-serif;
+  font-size:16px;font-weight:700;
+  letter-spacing:-.3px;
+}
 .pf-brand span{color:var(--accent)}
 .pf-back{
-  display:flex;align-items:center;gap:10px;
+  display:flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:600;
+  color:rgba(255,255,255,.7);
   text-decoration:none;
-  font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
-  color:rgba(255,255,255,.5);
-  transition:color .2s;cursor:none;
+  transition:color .3s;letter-spacing:.2px;cursor:none;
 }
-.pf-back:hover{color:var(--accent)}
-.pf-copy{font-size:12px;color:rgba(255,255,255,.3)}
-
-/* Other Products Section */
-.other-products {
-  background: var(--off);
-  padding: 100px 80px;
-  border-top: 1px solid var(--border);
+.pf-back:hover{color:#fff}
+.pf-copy{
+  font-size:12px;color:rgba(255,255,255,.5);letter-spacing:.3px;
 }
-.other-products-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-.other-products-title {
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(36px, 5vw, 56px);
-  font-weight: 800;
-  color: var(--ink);
-  letter-spacing: -2px;
-  margin-bottom: 12px;
-}
-.other-products-subtitle {
-  font-size: 16px;
-  color: var(--gray);
-}
-.other-products-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-.other-product-card {
-  background: var(--white);
-  border-radius: 20px;
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--border);
-  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-  cursor: pointer;
-  text-decoration: none;
-  color: inherit;
-}
-.other-product-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-  border-color: rgba(26,79,219,0.2);
-}
-.other-product-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
-  background: var(--blue-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
-}
-.other-product-icon svg {
-  color: var(--blue);
-}
-.other-product-card:hover .other-product-icon {
-  transform: scale(1.1);
-}
-.other-product-name {
-  font-family: 'Inter', sans-serif;
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: -0.2px;
-  margin-bottom: 8px;
-  color: var(--ink);
-}
-.other-product-desc {
-  font-size: 13px;
-  color: var(--gray);
-  line-height: 1.6;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.other-product-tag {
-  display: inline-block;
-  margin-top: 16px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--blue);
-  background: var(--blue-light);
-  padding: 4px 10px;
-  border-radius: 100px;
+@media(max-width:800px){
+  .page-footer{flex-direction:column;gap:20px;text-align:center;padding:40px 24px}
 }
 
-@media(max-width:1100px){
+/* ============ RESPONSIVE ============ */
+@media(max-width:1200px){
   .hero{grid-template-columns:1fr}
   .hero-image-zone{min-height:60vh}
-  .dim-grid{grid-template-columns:1fr}
-  .features-inner{grid-template-columns:1fr}
-  .uses-grid{grid-template-columns:1fr 1fr}
-  .stats-strip{flex-wrap:wrap}
-  .stat-item{min-width:50%}
+  .hero-content{padding:80px 48px}
+  .uses{padding:100px 48px}
+  .dimensions{padding:100px 48px}
+  .features{padding:100px 48px}
+  .contact-cta{padding:80px 48px}
+  .other-products{padding:100px 48px}
+  .page-footer{padding:40px 48px}
 }
 @media(max-width:768px){
-  /* Mobile cursor hidden */
-  .cur-d, .cur-r { display: none; }
-  body { cursor: auto; }
-  
-  /* Mobile navbar - floating pill */
-  nav {
-    top: 12px;
-    width: calc(100% - 24px);
-    max-width: 100%;
-    padding: 6px 8px;
-    border-radius: 50px;
-    gap: 4px;
-  }
-  nav.scrolled {
-    top: 8px;
-    padding: 4px 6px;
-  }
-  .nav-logo { 
-    font-size: 14px; 
-    padding: 6px 10px;
-    white-space: nowrap;
-  }
-  .nav-links-wrapper {
-    flex: 1;
-    justify-content: center;
-    background: rgba(240,240,240,0.4);
-    padding: 2px;
-  }
-  .nav-hover-pill { display: none; }
-  .nav-links { 
-    display: flex;
-    align-items: center;
-    gap: 0;
-  }
-  .nav-links a {
-    padding: 6px 10px;
-    font-size: 12px;
-    white-space: nowrap;
-  }
-  .nav-dropdown-toggle {
-    padding: 6px 10px;
-    font-size: 12px;
-  }
-  .nav-dropdown-menu {
-    top: calc(100% + 4px);
-    left: 50%;
-    transform: translateX(-50%) translateY(-8px);
-    min-width: 160px;
-    padding: 6px;
-  }
-  .nav-dropdown:hover .nav-dropdown-menu {
-    transform: translateX(-50%) translateY(0);
-  }
-  .nav-dropdown-menu a {
-    padding: 8px 10px;
-    font-size: 12px;
-  }
-  .nav-cta { 
-    padding: 6px 12px; 
-    font-size: 11px;
-    white-space: nowrap;
-  }
-  .hero { grid-template-columns: 1fr; padding-top: 70px; }
-  .hero-image-zone { min-height: 40vh; order: 2; }
-  .hero-photo-container { width: 70%; }
-  .bg-text-left { font-size: 80px; bottom: -10px; }
-  .hero-content { padding: 40px 24px 60px; order: 1; }
-  .product-title { font-size: clamp(48px, 12vw, 72px); letter-spacing: -1px; }
-  .product-subtitle { font-size: clamp(20px, 5vw, 28px); margin-bottom: 24px; }
-  .product-desc { font-size: 15px; margin-bottom: 32px; }
-  .spec-row { margin-bottom: 32px; }
-  .spec-pill { padding: 6px 12px; font-size: 11px; }
-  .cta-row { flex-direction: column; gap: 12px; }
-  .btn-main, .btn-outline { width: 100%; justify-content: center; padding: 14px 24px; font-size: 13px; }
-  .scroll-hint { display: none; }
-  .stats-strip { grid-template-columns: repeat(2, 1fr); padding: 40px 20px; gap: 24px; }
-  .stat-item { gap: 12px; }
-  .stat-bar-wrap { width: 16px; height: 80px; }
-  .stat-num { font-size: 36px; }
-  .stat-unit { font-size: 18px; }
-  .stat-label { font-size: 10px; }
-  .uses { padding: 60px 20px; }
-  .uses::before { font-size: 100px; top: 20px; right: -10px; }
-  .section-header { margin-bottom: 40px; }
-  .section-label { font-size: 10px; letter-spacing: 2px; }
-  .section-heading { font-size: clamp(36px, 10vw, 48px); }
-  .uses-grid { grid-template-columns: 1fr; gap: 16px; }
-  .use-card { padding: 28px 24px; border-radius: 18px; }
-  .use-num { font-size: 48px; top: 16px; right: 20px; }
-  .use-icon { width: 44px; height: 44px; }
-  .use-title { font-size: 18px; }
-  .use-desc { font-size: 13px; }
-  .dimensions { padding: 60px 20px; }
-  .dimensions::before { width: 300px; height: 300px; }
-  .spec-cards { grid-template-columns: 1fr; gap: 16px; margin-top: 40px; }
-  .spec-card { padding: 24px; border-radius: 16px; }
-  .spec-card-icon { width: 44px; height: 44px; }
-  .spec-card-title { font-size: 11px; }
-  .spec-chip { font-size: 16px; padding: 6px 12px; }
-  .custom-note-wide { flex-direction: column; padding: 20px 24px; text-align: center; }
-  .features { padding: 60px 20px; }
-  .features::before { font-size: 80px; top: 20px; }
-  .features-timeline { padding: 10px 0; }
-  .timeline-line { left: 20px; }
-  .timeline-dot { left: 20px; width: 36px; height: 36px; font-size: 14px; box-shadow: 0 0 0 6px var(--off); }
-  .timeline-item { margin-bottom: 40px; }
-  .timeline-item:nth-child(odd), .timeline-item:nth-child(even) { flex-direction: row; text-align: left; }
-  .timeline-item:nth-child(odd) .timeline-content, .timeline-item:nth-child(even) .timeline-content { margin-left: 60px; margin-right: 0; }
-  .timeline-content h4 { font-size: 17px; }
-  .timeline-content p { font-size: 13px; }
-  .app-item { font-size: 12px; padding: 0 20px; gap: 12px; }
-  .reveal { transform: translateY(40px) scale(0.95); filter: blur(4px); }
-  .reveal.on { transform: translateY(0) scale(1); filter: blur(0); }
-  .reveal-left { transform: translateX(-40px); }
-  .reveal-right { transform: translateX(40px); }
-  .page-footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 20px; }
-  .pf-brand { font-size: 20px; }
-  .pf-back { font-size: 12px; }
-  .pf-copy { font-size: 11px; }
-  .other-products { padding: 60px 20px; }
-  .other-products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .other-product-card { padding: 20px; border-radius: 14px; }
-  .other-product-name { font-size: 15px; }
-  .other-product-desc { font-size: 12px; -webkit-line-clamp: 2; line-clamp: 2; }
-  .other-product-icon { width: 40px; height: 40px; border-radius: 12px; }
-  .other-product-tag { font-size: 10px; padding: 3px 8px; }
-  .use-card:active, .spec-card:active, .btn-main:active, .btn-outline:active { transform: scale(0.98); transition: transform 0.1s; }
+  .hero-content{padding:60px 32px}
+  .bg-text-left{font-size:120px}
+  .product-title{font-size:clamp(48px,6vw,72px)}
+  .product-subtitle{font-size:clamp(20px,2.5vw,32px)}
+  .spec-row{gap:8px}
+  .cta-row{flex-direction:column}
+  .btn-main,.btn-outline{width:100%}
+  .scroll-hint{display:none}
+  .uses{padding:80px 32px}
+  .dimensions{padding:80px 32px}
+  .features{padding:80px 32px}
+  .contact-cta{padding:80px 32px}
+  .other-products{padding:80px 32px}
 }
-@media(max-width:375px){
-  .product-title { font-size: 40px; }
-  .product-subtitle { font-size: 18px; }
-  .stats-strip { grid-template-columns: 1fr; }
-  .stat-bar-wrap { height: 60px; }
-  .stat-num { font-size: 32px; }
+@media(max-width:600px){
+  .hero-content{padding:50px 20px}
+  .product-eyebrow{margin-bottom:20px}
+  .product-title{font-size:clamp(36px,5vw,56px);line-height:.95}
+  .product-subtitle{font-size:clamp(16px,2vw,24px);margin-bottom:24px}
+  .product-desc{font-size:14px;margin-bottom:32px;max-width:100%}
+  .spec-pill{padding:6px 12px;font-size:11px}
+  .section-heading{font-size:clamp(32px,4vw,48px)}
+  .uses-grid{grid-template-columns:1fr}
+  .uses{padding:60px 20px}
+  .dimensions{padding:60px 20px}
+  .features{padding:60px 20px}
+  .features-timeline{padding:0}
+  .contact-cta{padding:60px 20px}
+  .cta-title{font-size:clamp(36px,5vw,64px);margin-bottom:16px}
+  .cta-desc{font-size:14px;margin-bottom:32px}
+  .cta-buttons{flex-direction:column}
+  .cta-btn-main,.cta-btn-outline{width:100%;justify-content:center}
+  .other-products{padding:60px 20px}
+  .page-footer{padding:30px 20px;gap:16px}
+  .stats-strip{padding:40px 20px}
+  .use-card{padding:24px 20px}
+  .use-num{font-size:48px}
 }
+
+/* ============ REVEAL ANIMATIONS ============ */
+.reveal,.reveal-left,.reveal-right,.reveal-burst,.reveal-flip{opacity:0}
+.reveal.on{animation:fadeUp .7s cubic-bezier(.4,0,.2,1) forwards}
+.reveal-left.on{animation:slideFromLeft .7s cubic-bezier(.4,0,.2,1) forwards}
+.reveal-right.on{animation:slideFromRight .7s cubic-bezier(.4,0,.2,1) forwards}
+.reveal-burst.on{animation:burst .8s cubic-bezier(.4,0,.2,1) forwards}
+.reveal-flip.on{animation:flipIn .8s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes slideFromLeft{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:translateX(0)}}
+@keyframes slideFromRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+@keyframes burst{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
+@keyframes flipIn{from{opacity:0;transform:rotateY(-40deg)}to{opacity:1;transform:rotateY(0)}}
+.rd1{animation-delay:.1s}.rd2{animation-delay:.2s}.rd3{animation-delay:.3s}.rd4{animation-delay:.4s}
 </style>
 </head>
 <body>
@@ -1099,7 +996,6 @@ nav.scrolled {
 <div class="cur-d" id="cD"></div>
 <div class="cur-r" id="cR"></div>
 
-<!-- NAV -->
 <nav id="navbar">
   <a class="nav-logo" href="index.html"><span>NKB</span> Packaging</a>
   <div class="nav-links-wrapper">
@@ -1134,23 +1030,19 @@ nav.scrolled {
 
 <!-- HERO -->
 <section class="hero">
-
-  <!-- LEFT: IMAGE ZONE -->
   <div class="hero-image-zone" style="background:var(--white);">
     <div class="image-noise"></div>
-
     <div class="hero-photo-container reveal-burst">
-      <img src="kraft.png" alt="Kraft Paper Tape" onerror="this.style.display='none'; this.parentElement.querySelector('.photo-fallback').style.display='flex'"/>
+      <img src="ldpebag.png" alt="LDPE Polythene Bags" onerror="this.style.display='none'; this.parentElement.querySelector('.photo-fallback').style.display='flex'"/>
       <div class="photo-fallback" style="display:none;flex-direction:column;align-items:center;gap:16px;">
         <div class="photo-placeholder-icon">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
         </div>
-        <div class="photo-placeholder-text">kraft.png</div>
+        <div class="photo-placeholder-text">ldpebag.png</div>
       </div>
     </div>
   </div>
 
-  <!-- RIGHT: CONTENT -->
   <div class="hero-content">
     <div class="product-eyebrow">
       <div class="eyebrow-line"></div>
@@ -1158,30 +1050,30 @@ nav.scrolled {
     </div>
 
     <h1 class="product-title">
-      KRAFT<br><span class="accent">PAPER</span><br>TAPE
+      LDPE<br><span class="accent">POLYTHENE BAGS</span>
     </h1>
-    <div class="product-subtitle">Eco-Friendly Packaging Solution</div>
+    <div class="product-subtitle">Flexible & Versatile Protection</div>
 
     <p class="product-desc">
-      Our <strong>Kraft Paper Tape</strong> is the sustainable choice for environmentally conscious businesses. Made from natural paper fibers with a water-activated or pressure-sensitive adhesive, it provides secure sealing while being fully recyclable and biodegradable.
+      Our <strong>LDPE Polythene Bags</strong> deliver durable, lightweight packaging with excellent moisture resistance and tear strength. Designed for retail, industrial, and food-safe use, these bags ensure secure handling for every shipment.
     </p>
 
     <div class="spec-row">
       <div class="spec-pill">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        100% Recyclable
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+        100% Food Safe
       </div>
       <div class="spec-pill">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-        Natural Paper
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Chemical Resistant
       </div>
       <div class="spec-pill">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Biodegradable
+        Moisture Barrier
       </div>
       <div class="spec-pill">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        Strong Adhesion
+        Easy to Cut
       </div>
     </div>
 
@@ -1200,42 +1092,42 @@ nav.scrolled {
   </div>
 </section>
 
-<!-- STATS - Big bold numbers with animated bars -->
+<!-- STATS -->
 <div class="stats-strip">
   <div class="stat-block reveal">
     <div class="stat-bar-wrap">
-      <div class="stat-bar" style="--target-height:100%"></div>
+      <div class="stat-bar" style="--target-height:98%"></div>
     </div>
     <div class="stat-info">
-      <div class="stat-num">100<span class="stat-unit">%</span></div>
-      <div class="stat-label">Recyclable</div>
+      <div class="stat-num">98<span class="stat-unit">%</span></div>
+      <div class="stat-label">Optical Clarity</div>
     </div>
   </div>
   <div class="stat-block reveal rd1">
     <div class="stat-bar-wrap">
-      <div class="stat-bar" style="--target-height:50%"></div>
+      <div class="stat-bar" style="--target-height:92%"></div>
     </div>
     <div class="stat-info">
-      <div class="stat-num">50<span class="stat-unit">m</span></div>
-      <div class="stat-label">Roll Length</div>
+      <div class="stat-num">92<span class="stat-unit">%</span></div>
+      <div class="stat-label">Moisture Resistance</div>
     </div>
   </div>
   <div class="stat-block reveal rd2">
     <div class="stat-bar-wrap">
-      <div class="stat-bar" style="--target-height:48%"></div>
+      <div class="stat-bar" style="--target-height:75%"></div>
     </div>
     <div class="stat-info">
-      <div class="stat-num">48<span class="stat-unit">mm</span></div>
-      <div class="stat-label">Standard Width</div>
+      <div class="stat-num">500<span class="stat-unit">mm</span></div>
+      <div class="stat-label">Max Bag Width</div>
     </div>
   </div>
   <div class="stat-block reveal rd3">
     <div class="stat-bar-wrap">
-      <div class="stat-bar" style="--target-height:12%"></div>
+      <div class="stat-bar" style="--target-height:60%"></div>
     </div>
     <div class="stat-info">
-      <div class="stat-num">12<span class="stat-unit">mo</span></div>
-      <div class="stat-label">Shelf Life</div>
+      <div class="stat-num">20-80<span class="stat-unit">μm</span></div>
+      <div class="stat-label">Thickness Options</div>
     </div>
   </div>
 </div>
@@ -1243,23 +1135,23 @@ nav.scrolled {
 <!-- APPLICATIONS MARQUEE -->
 <div class="app-marquee">
   <div class="app-track">
-    <div class="app-item">Eco-Friendly Packaging<div class="app-sep"></div></div>
-    <div class="app-item">E-Commerce Shipping<div class="app-sep"></div></div>
-    <div class="app-item">Retail Packaging<div class="app-sep"></div></div>
-    <div class="app-item">Organic Products<div class="app-sep"></div></div>
-    <div class="app-item">Sustainable Brands<div class="app-sep"></div></div>
-    <div class="app-item">Gift Wrapping<div class="app-sep"></div></div>
-    <div class="app-item">Artisan Goods<div class="app-sep"></div></div>
-    <div class="app-item">Food Service<div class="app-sep"></div></div>
+    <div class="app-item">Food Wrapping<div class="app-sep"></div></div>
+    <div class="app-item">Moisture Barrier<div class="app-sep"></div></div>
+    <div class="app-item">Storage Liners<div class="app-sep"></div></div>
+    <div class="app-item">Product Protection<div class="app-sep"></div></div>
+    <div class="app-item">Industrial Wrapping<div class="app-sep"></div></div>
+    <div class="app-item">General Purpose<div class="app-sep"></div></div>
+    <div class="app-item">Moisture Barriers<div class="app-sep"></div></div>
+    <div class="app-item">Protective Liners<div class="app-sep"></div></div>
     <!-- duplicate -->
-    <div class="app-item">Eco-Friendly Packaging<div class="app-sep"></div></div>
-    <div class="app-item">E-Commerce Shipping<div class="app-sep"></div></div>
-    <div class="app-item">Retail Packaging<div class="app-sep"></div></div>
-    <div class="app-item">Organic Products<div class="app-sep"></div></div>
-    <div class="app-item">Sustainable Brands<div class="app-sep"></div></div>
-    <div class="app-item">Gift Wrapping<div class="app-sep"></div></div>
-    <div class="app-item">Artisan Goods<div class="app-sep"></div></div>
-    <div class="app-item">Food Service<div class="app-sep"></div></div>
+    <div class="app-item">Food Wrapping<div class="app-sep"></div></div>
+    <div class="app-item">Moisture Barrier<div class="app-sep"></div></div>
+    <div class="app-item">Storage Liners<div class="app-sep"></div></div>
+    <div class="app-item">Product Protection<div class="app-sep"></div></div>
+    <div class="app-item">Industrial Wrapping<div class="app-sep"></div></div>
+    <div class="app-item">General Purpose<div class="app-sep"></div></div>
+    <div class="app-item">Moisture Barriers<div class="app-sep"></div></div>
+    <div class="app-item">Protective Liners<div class="app-sep"></div></div>
   </div>
 </div>
 
@@ -1267,61 +1159,61 @@ nav.scrolled {
 <section class="uses">
   <div class="section-header reveal">
     <div class="section-label"><div class="section-label-line"></div> Applications</div>
-    <h2 class="section-heading">Where It <span>Works</span></h2>
+    <h2 class="section-heading">Where It <span>Protects</span></h2>
   </div>
   <div class="uses-grid">
     <div class="use-card reveal rd1">
       <div class="use-num">01</div>
       <div class="use-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       </div>
-      <div class="use-title">Sustainable E-Commerce</div>
-      <div class="use-desc">Perfect for eco-conscious online retailers who need secure packaging that aligns with their environmental values and customer expectations.</div>
+      <div class="use-title">Food Packaging</div>
+      <div class="use-desc">Safe food contact compliance. Wrap fresh produce, bakery items, and prepared meals with confidence.</div>
     </div>
     <div class="use-card reveal rd2">
       <div class="use-num">02</div>
       <div class="use-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
       </div>
-      <div class="use-title">Organic Product Lines</div>
-      <div class="use-desc">Ideal for packaging organic foods, natural cosmetics, and sustainable goods where plastic-free packaging is a brand requirement.</div>
+      <div class="use-title">Moisture Barrier</div>
+      <div class="use-desc">Protects contents from moisture and humidity. Ideal for storing electronics, textiles, and hygroscopic materials.</div>
     </div>
     <div class="use-card reveal rd3">
       <div class="use-num">03</div>
       <div class="use-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
       </div>
-      <div class="use-title">Gift & Craft Packaging</div>
-      <div class="use-desc">Adds a natural, rustic aesthetic to gift wrapping and artisan product packaging. Can be written on for personalized messages.</div>
+      <div class="use-title">Storage Liners</div>
+      <div class="use-desc">Line boxes, bins, and containers for clean storage. Prevents product contact with contaminated surfaces.</div>
     </div>
     <div class="use-card reveal rd2">
       <div class="use-num">04</div>
       <div class="use-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
       </div>
-      <div class="use-title">Secure Carton Sealing</div>
-      <div class="use-desc">Provides excellent adhesion to corrugated cardboard. Once applied, it bonds permanently with the box for tamper-evident sealing.</div>
+      <div class="use-title">Industrial Wrapping</div>
+      <div class="use-desc">General-purpose wrapping for machinery, equipment, and components during storage and transit.</div>
     </div>
     <div class="use-card reveal rd3">
       <div class="use-num">05</div>
       <div class="use-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
       </div>
-      <div class="use-title">Recycling Facilities</div>
-      <div class="use-desc">Unlike plastic tapes, Kraft tape doesn't need to be removed before recycling. It dissolves completely in the paper recycling process.</div>
+      <div class="use-title">Protective Covers</div>
+      <div class="use-desc">Cover shelves, work surfaces, and equipment during painting or construction. Easy to install and remove.</div>
     </div>
     <div class="use-card reveal rd4">
       <div class="use-num">06</div>
       <div class="use-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       </div>
-      <div class="use-title">Brand Image Boost</div>
-      <div class="use-desc">Demonstrates your commitment to sustainability. The natural brown appearance communicates eco-friendly values to customers.</div>
+      <div class="use-title">Chemical Resistant</div>
+      <div class="use-desc">Withstands exposure to oils, grease, and mild chemicals. Reliable for chemical storage and handling.</div>
     </div>
   </div>
 </section>
 
-<!-- DIMENSIONS - Visual spec cards instead of tables -->
+<!-- DIMENSIONS -->
 <section class="dimensions" id="dimensions">
   <div class="section-header reveal">
     <div class="section-label"><div class="section-label-line"></div> Technical Data</div>
@@ -1335,11 +1227,11 @@ nav.scrolled {
       </div>
       <div class="spec-card-title">Width Options</div>
       <div class="spec-card-values">
-        <span class="spec-chip">24mm</span>
-        <span class="spec-chip">48mm</span>
-        <span class="spec-chip">72mm</span>
+        <span class="spec-chip">600mm</span>
+        <span class="spec-chip">800mm</span>
+        <span class="spec-chip">1200mm</span>
       </div>
-      <div class="spec-card-note">1" • 2" • 3"</div>
+      <div class="spec-card-note">Standard widths available</div>
     </div>
 
     <div class="spec-card reveal rd1">
@@ -1348,70 +1240,71 @@ nav.scrolled {
       </div>
       <div class="spec-card-title">Roll Length</div>
       <div class="spec-card-values">
-        <span class="spec-chip highlight">50m</span>
-        <span class="spec-chip">100m</span>
+        <span class="spec-chip highlight">500m</span>
+        <span class="spec-chip">250m</span>
       </div>
-      <div class="spec-card-note">Standard • Jumbo</div>
+      <div class="spec-card-note">Cut-to-length available</div>
     </div>
 
     <div class="spec-card reveal rd2">
       <div class="spec-card-icon">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
       </div>
-      <div class="spec-card-title">Core Size</div>
+      <div class="spec-card-title">Film Thickness</div>
       <div class="spec-card-values">
-        <span class="spec-chip">2"</span>
-        <span class="spec-chip">3"</span>
+        <span class="spec-chip">25μm</span>
+        <span class="spec-chip highlight">50μm</span>
+        <span class="spec-chip">75μm</span>
       </div>
-      <div class="spec-card-note">Standard cores</div>
+      <div class="spec-card-note">Custom thickness available</div>
     </div>
 
     <div class="spec-card reveal rd3">
       <div class="spec-card-icon">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
       </div>
-      <div class="spec-card-title">Paper Weight</div>
+      <div class="spec-card-title">Density</div>
       <div class="spec-card-values">
-        <span class="spec-chip highlight">70-90gsm</span>
+        <span class="spec-chip highlight">0.92 g/cm³</span>
       </div>
-      <div class="spec-card-note">Natural kraft paper</div>
+      <div class="spec-card-note">LDPE Classification</div>
     </div>
 
     <div class="spec-card reveal reveal-flip rd2">
       <div class="spec-card-icon">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       </div>
-      <div class="spec-card-title">Adhesive Type</div>
+      <div class="spec-card-title">Tensile Strength</div>
       <div class="spec-card-values">
-        <span class="spec-chip highlight">Natural Rubber</span>
+        <span class="spec-chip highlight">12-15 MPa</span>
       </div>
-      <div class="spec-card-note">Eco-friendly adhesive</div>
+      <div class="spec-card-note">MD/TD balanced</div>
     </div>
 
     <div class="spec-card reveal reveal-flip rd3">
       <div class="spec-card-icon">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
       </div>
-      <div class="spec-card-title">Shelf Life</div>
+      <div class="spec-card-title">Clarity</div>
       <div class="spec-card-values">
-        <span class="spec-chip highlight">12 months</span>
+        <span class="spec-chip highlight">High</span>
       </div>
-      <div class="spec-card-note">When stored properly</div>
+      <div class="spec-card-note">Crystal clear visibility</div>
     </div>
   </div>
 
   <div class="custom-note-wide reveal rd4">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-    <p><strong>Custom sizes available</strong> — We manufacture in various dimensions and sizes as per your demand. <span style="color:var(--accent)">Contact us for MOQ details.</span></p>
+    <p><strong>Fully customizable</strong> — Available in various widths, lengths, and thicknesses. Anti-slip, ESD, and UV-resistant variants available. Food-grade certifications on request. <span style="color:var(--accent)">Contact us for bulk pricing.</span></p>
   </div>
 </section>
 
-<!-- FEATURES - Zigzag timeline layout -->
+<!-- FEATURES -->
 <section class="features">
   <div class="section-header reveal" style="text-align:center;max-width:600px;margin:0 auto 80px;">
-    <div class="section-label" style="justify-content:center;"><div class="section-label-line"></div> Why This Tape</div>
-    <h2 class="section-heading">What Makes It <span style="color:var(--primary)">Different</span></h2>
-    <p style="font-size:16px;color:var(--gray);line-height:1.7;margin-top:20px;">Kraft paper tape offers unique advantages that plastic tapes simply cannot match.</p>
+    <div class="section-label" style="justify-content:center;"><div class="section-label-line"></div> Why Choose LDPE</div>
+    <h2 class="section-heading">What Makes It <span style="color:var(--primary)">Superior</span></h2>
+    <p style="font-size:16px;color:var(--gray);line-height:1.7;margin-top:20px;">Exceptional flexibility, chemical resistance, and food-safe compliance make LDPE sheets ideal for versatile applications.</p>
   </div>
 
   <div class="features-timeline">
@@ -1420,40 +1313,40 @@ nav.scrolled {
     <div class="timeline-item reveal-left">
       <div class="timeline-dot">01</div>
       <div class="timeline-content">
-        <h4>Eco-Friendly & Sustainable</h4>
-        <p>Made from renewable wood pulp with natural rubber adhesive. Fully biodegradable and recyclable with cardboard packaging.</p>
+        <h4>Food Safe Compliance</h4>
+        <p>FDA and FSMA compliant for direct food contact. Safe for fresh produce, bakery items, and packaged foods.</p>
       </div>
     </div>
 
     <div class="timeline-item reveal-right">
       <div class="timeline-dot">02</div>
       <div class="timeline-content">
-        <h4>Superior Box Bonding</h4>
-        <p>Unlike plastic tapes that sit on the surface, Kraft tape fibers bond with cardboard, becoming part of the box structure.</p>
+        <h4>Superior Flexibility</h4>
+        <p>Exceptional flexibility allows easy cutting and wrapping. Conforms to irregular shapes and surfaces.</p>
       </div>
     </div>
 
     <div class="timeline-item reveal-left">
       <div class="timeline-dot">03</div>
       <div class="timeline-content">
-        <h4>Tamper-Evident Security</h4>
-        <p>Any attempt to remove the tape damages the box surface, providing clear visual evidence of tampering.</p>
+        <h4>Chemical Resistant</h4>
+        <p>Withstands oils, grease, and many chemicals. Ideal for industrial and chemical storage applications.</p>
       </div>
     </div>
 
     <div class="timeline-item reveal-right">
       <div class="timeline-dot">04</div>
       <div class="timeline-content">
-        <h4>Writeable Surface</h4>
-        <p>The matte paper surface accepts pen, pencil, and marker. Perfect for labeling, dating, or adding personal messages.</p>
+        <h4>Crystal Clear Visibility</h4>
+        <p>High optical clarity for product visibility. See contents without removing the protective layer.</p>
       </div>
     </div>
 
     <div class="timeline-item reveal-left">
       <div class="timeline-dot">05</div>
       <div class="timeline-content">
-        <h4>Professional Aesthetic</h4>
-        <p>The natural brown color and texture communicate quality and environmental consciousness to your customers.</p>
+        <h4>Cost Effective</h4>
+        <p>Economical pricing with bulk discounts. Reduces overall packaging costs without sacrificing quality.</p>
       </div>
     </div>
   </div>
@@ -1467,10 +1360,10 @@ nav.scrolled {
   <div style="max-width:700px;position:relative;z-index:1" class="reveal">
     <div style="font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:16px">Ready to Order?</div>
     <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,7vw,96px);line-height:.9;color:#fff;letter-spacing:-1px;margin-bottom:24px">
-      SWITCH TO<br><span style="color:var(--accent)">ECO-FRIENDLY</span><br>PACKAGING
+      GET YOUR<br><span style="color:var(--accent)">LDPE POLYTHENE BAGS</span><br>TODAY
     </h2>
     <p style="font-size:16px;color:rgba(255,255,255,.65);line-height:1.75;max-width:480px;margin-bottom:48px">
-      Join hundreds of sustainable brands making the switch to Kraft paper tape. Available in bulk with custom printing options.
+      Available in custom widths and lengths. Bulk pricing for large orders. Food-grade certifications and technical support included.
     </p>
     <div style="display:flex;gap:14px;flex-wrap:wrap">
       <a href="contact.html" style="display:inline-flex;align-items:center;gap:10px;padding:16px 36px;background:#fff;color:var(--primary);font-family:'Barlow',sans-serif;font-size:14px;font-weight:700;border-radius:100px;text-decoration:none;transition:all .25s;letter-spacing:.3px;cursor:none">
@@ -1509,45 +1402,36 @@ nav.scrolled {
     </a>
     <a href="color.html" class="other-product-card">
       <div class="other-product-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
       </div>
       <div class="other-product-name">Color BOPP</div>
-      <div class="other-product-desc">Vibrant colored tapes for branding, coding, and decorative applications. Multiple colors available.</div>
+      <div class="other-product-desc">Vibrant colored packaging tape. Available in multiple colors for brand differentiation and visual appeal.</div>
       <span class="other-product-tag">Colored</span>
     </a>
     <a href="masking.html" class="other-product-card">
       <div class="other-product-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
       </div>
       <div class="other-product-name">Masking Tapes</div>
-      <div class="other-product-desc">Clean removal, precise masking. Ideal for painting, surface protection, and automotive finishing.</div>
-      <span class="other-product-tag">Industrial</span>
+      <div class="other-product-desc">Precision masking for clean edges and spray applications. Easy removal without adhesive residue.</div>
+      <span class="other-product-tag">Precision</span>
     </a>
     <a href="stretch.html" class="other-product-card">
       <div class="other-product-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       </div>
       <div class="other-product-name">Stretch Films</div>
-      <div class="other-product-desc">Multi-layer LLDPE stretch wraps for pallet stability. Ultra-clear, high cling, and tear-resistant.</div>
-      <span class="other-product-tag">Pallet Wrap</span>
+      <div class="other-product-desc">High-performance LLDPE for pallet wrapping and load containment. 300% stretch capacity.</div>
+      <span class="other-product-tag">Protection</span>
     </a>
     <a href="ldpe.html" class="other-product-card">
       <div class="other-product-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7c0-2 2-4 5-4h10v14H9c-3 0-5-2-5-4V7z"/><path d="M9 3v14"/><path d="M19 7h2v6h-2"/></svg>
       </div>
-      <div class="other-product-name">LDPE Plastic Sheet</div>
-      <div class="other-product-desc">Flexible & versatile low-density polyethylene sheets. 100% food-safe with excellent moisture barrier properties.</div>
+      <div class="other-product-name">LDPE Plastic Sheet Rolls</div>
+      <div class="other-product-desc">Flexible low-density polyethylene rolls for moisture barriers, food-safe wrapping, and general-purpose protection.</div>
       <span class="other-product-tag">Flexible</span>
     </a>
-    <a href="ldpebag.html" class="other-product-card">
-      <div class="other-product-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12l2 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8l2-4z"/><path d="M8 12h8"/></svg>
-      </div>
-      <div class="other-product-name">LDPE Polythene Bags</div>
-      <div class="other-product-desc">Lightweight LDPE bags with strong tear resistance and moisture protection for retail and industrial packaging.</div>
-      <span class="other-product-tag">Bag Pack</span>
-    </a>
-
     <a href="bio.html" class="other-product-card">
       <div class="other-product-icon">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -1582,11 +1466,11 @@ nav.scrolled {
     </a>
     <a href="esd.html" class="other-product-card">
       <div class="other-product-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       </div>
       <div class="other-product-name">ESD Bubble Pouches</div>
-      <div class="other-product-desc">Anti-static protection for electronics and sensitive components. Pink/metallic layers with ESD compliance.</div>
-      <span class="other-product-tag">Anti-Static</span>
+      <div class="other-product-desc">Anti-static protective pouches with bubble cushioning. Essential for electronics and sensitive components.</div>
+      <span class="other-product-tag">Static Protection</span>
     </a>
     <a href="silver.html" class="other-product-card">
       <div class="other-product-icon">
@@ -1595,6 +1479,14 @@ nav.scrolled {
       <div class="other-product-name">Silver Pouches</div>
       <div class="other-product-desc">Metalized barrier pouches offering superior moisture, oxygen, and light protection for sensitive materials.</div>
       <span class="other-product-tag">Barrier Pack</span>
+    </a>
+    <a href="kraft.html" class="other-product-card">
+      <div class="other-product-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+      </div>
+      <div class="other-product-name">Kraft Paper Tape</div>
+      <div class="other-product-desc">100% recyclable natural paper tape with strong adhesion. Eco-friendly solution for sustainable packaging.</div>
+      <span class="other-product-tag">Eco-Friendly</span>
     </a>
   </div>
 </section>
@@ -1615,7 +1507,7 @@ const cD=document.getElementById('cD'), cR=document.getElementById('cR');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cD.style.left=mx+'px';cD.style.top=my+'px'});
 (function loop(){rx+=(mx-rx)*.11;ry+=(my-ry)*.11;cR.style.left=rx+'px';cR.style.top=ry+'px';requestAnimationFrame(loop)})();
-document.querySelectorAll('button,a,.use-card,.stat-item,.spec-row-item,.feat-item').forEach(el=>{
+document.querySelectorAll('button,a,.use-card,.stat-block,.spec-card,.timeline-item').forEach(el=>{
   el.addEventListener('mouseenter',()=>cR.classList.add('h'));
   el.addEventListener('mouseleave',()=>cR.classList.remove('h'));
 });
@@ -1623,6 +1515,12 @@ document.querySelectorAll('button,a,.use-card,.stat-item,.spec-row-item,.feat-it
 // Scroll reveal
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.15});
 document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-burst,.reveal-flip').forEach(el=>obs.observe(el));
+
+// Stat bar animation
+const statObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')});
+},{threshold:.3});
+document.querySelectorAll('.stat-block').forEach(el=>statObs.observe(el));
 
 // Navbar scroll effect
 const navbar=document.getElementById('navbar');
@@ -1668,36 +1566,11 @@ if (navLinksWrapper) {
 
 window.addEventListener('resize', () => {
   const active = document.querySelector('.nav-links a.active');
-  if (active && navHoverPill) updatePillPosition(active);
+  if (active && navHoverPill) {
+    updatePillPosition(active);
+  }
 });
-
-// Counter animation for stat numbers
-const counters = document.querySelectorAll('.stat-num');
-const counterObs = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      const el = entry.target;
-      const full = el.innerHTML;
-      const unit = el.querySelector('.stat-unit')?.outerHTML||'';
-      const numStr = el.textContent.replace(/[^0-9.]/g,'');
-      const target = parseFloat(numStr);
-      if(isNaN(target)||target===0){return}
-      let start=0; const dur=1400;
-      const startTime=performance.now();
-      const tick=now=>{
-        const p=Math.min((now-startTime)/dur,1);
-        const ease=1-Math.pow(1-p,3);
-        const cur=Math.round(target*ease);
-        el.innerHTML = cur + unit;
-        if(p<1) requestAnimationFrame(tick);
-        else el.innerHTML = full;
-      };
-      requestAnimationFrame(tick);
-      counterObs.unobserve(el);
-    }
-  });
-},{threshold:.5});
-counters.forEach(c=>counterObs.observe(c));
 </script>
+
 </body>
 </html>
