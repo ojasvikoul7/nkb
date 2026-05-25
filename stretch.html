@@ -983,6 +983,23 @@ nav.scrolled {
     display: none;
   }
   
+  /* Hero mobile order like BOPP */
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 70px;
+  }
+  .hero-image-zone {
+    min-height: 40vh;
+    order: 2;
+  }
+  .hero-photo-container {
+    width: 70%;
+  }
+  .hero-content {
+    padding: 40px 24px 60px;
+    order: 1;
+  }
+  
   /* Stats mobile */
   .stats-strip {
     grid-template-columns: repeat(2, 1fr);

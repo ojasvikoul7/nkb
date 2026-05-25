@@ -938,7 +938,21 @@ nav.scrolled {
   .page-footer{padding:40px 48px}
 }
 @media(max-width:768px){
-  .hero-content{padding:60px 32px}
+  .hero{
+    grid-template-columns: 1fr;
+    padding-top: 70px;
+  }
+  .hero-image-zone{
+    min-height: 40vh;
+    order: 2;
+  }
+  .hero-photo-container{
+    width: 70%;
+  }
+  .hero-content{
+    padding: 40px 24px 60px;
+    order: 1;
+  }
   .bg-text-left{font-size:120px}
   .product-title{font-size:clamp(48px,6vw,72px)}
   .product-subtitle{font-size:clamp(20px,2.5vw,32px)}
